@@ -1,0 +1,298 @@
+/* ═══════════════════════════════════════════
+   SHARED HERO CAROUSEL
+   Used on: Home page · Projects page
+═══════════════════════════════════════════ */
+
+.pj-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+.pj-eyebrow--center {
+  justify-content: center;
+}
+.pj-eyebrow-line {
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: var(--accent-gold);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* ── Shell ── */
+.pj-carousel {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Slides ── */
+.pj-carousel__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.pj-carousel__slide--active {
+  opacity: 1;
+}
+.pj-carousel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45) saturate(0.8);
+  transform: scale(1.04);
+  animation: carouselZoom 5s ease-out forwards;
+}
+@keyframes carouselZoom {
+  to {
+    transform: scale(1);
+  }
+}
+.pj-carousel__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.35) 40%,
+      rgba(0, 0, 0, 0.05) 100%
+    ),
+    linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 60%);
+}
+
+/* ── Content ── */
+.pj-carousel__body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.pj-carousel__content {
+  padding-top: 88px;
+  max-width: 680px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+}
+.pj-carousel__content--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pj-carousel__content--fade {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.pj-carousel__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.pj-carousel__heading--gold {
+  color: var(--accent-gold);
+  font-style: italic;
+}
+.pj-carousel__sub {
+  font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 48px;
+}
+
+/* ── CTAs ── */
+.pj-carousel__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.pj-carousel__btn-primary {
+  display: inline-block;
+  padding: 14px 36px;
+  background: var(--accent-gold);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--accent-gold);
+  border-radius: 2px;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+.pj-carousel__btn-primary:hover {
+  background: transparent;
+  color: var(--accent-gold);
+}
+.pj-carousel__btn-secondary {
+  display: inline-block;
+  padding: 14px 36px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 2px;
+  transition:
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+.pj-carousel__btn-secondary:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* ── Counter ── */
+.pj-carousel__counter {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.pj-carousel__counter-current {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+.pj-carousel__counter-sep {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+.pj-carousel__counter-total {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Dot nav ── */
+.pj-carousel__dots {
+  position: absolute;
+  bottom: 100px;
+  right: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 3;
+}
+.pj-carousel__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    height 0.3s ease;
+}
+.pj-carousel__dot--active {
+  background: var(--accent-gold);
+  transform: scale(1.4);
+  height: 20px;
+  border-radius: 4px;
+}
+
+/* ── Arrows ── */
+.pj-carousel__arrows {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+.pj-carousel__arrow {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+}
+.pj-carousel__arrow:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(196, 30, 30, 0.1);
+}
+
+/* ── Progress bar ── */
+.pj-carousel__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  z-index: 3;
+}
+.pj-carousel__progress-bar {
+  height: 100%;
+  background: var(--accent-gold);
+  animation: progressFill 5s linear forwards;
+  transform-origin: left;
+}
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .pj-carousel__dots {
+    right: 20px;
+    bottom: 80px;
+  }
+  .pj-carousel__arrows {
+    right: 20px;
+    bottom: 24px;
+  }
+}
+@media (max-width: 540px) {
+  .pj-carousel {
+    height: 100svh;
+  }
+  .pj-carousel__content {
+    padding-top: 100px;
+  }
+  .pj-carousel__arrows {
+    display: none;
+  }
+}

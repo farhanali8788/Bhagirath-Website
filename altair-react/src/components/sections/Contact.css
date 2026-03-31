@@ -1,0 +1,71 @@
+.altair-contact {
+  background: var(--burgundy-dark); padding: var(--section-padding);
+  text-align: center; position: relative; overflow: hidden;
+}
+.altair-contact__glow {
+  position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,169,110,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.altair-contact__header { margin-bottom: 3.5rem; }
+.altair-contact__tagline {
+  font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-weight: 300; color: var(--text-primary); line-height: 1.1; margin-bottom: 1.5rem;
+}
+.altair-contact__tagline em { font-style: italic; color: var(--gold); }
+.altair-contact__sub {
+  font-size: 0.9rem; color: var(--gold-pale); opacity: 0.6;
+  max-width: 440px; margin: 0 auto; line-height: 1.85;
+}
+
+/* Form */
+.altair-contact__form-wrap { max-width: 520px; margin: 0 auto 3.5rem; }
+.altair-contact__form { display: flex; flex-direction: column; gap: 1rem; }
+.altair-contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.altair-contact__field { display: flex; flex-direction: column; }
+.altair-contact__input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,169,110,0.2); color: var(--gold-pale);
+  padding: 0.9rem 1.25rem; font-family: var(--font-body); font-size: 0.82rem;
+  outline: none; transition: border-color 0.3s, background 0.3s;
+  width: 100%; -webkit-appearance: none; appearance: none;
+}
+.altair-contact__input::placeholder { color: rgba(201,169,110,0.28); }
+.altair-contact__input:focus { border-color: var(--gold); background: rgba(255,255,255,0.07); }
+.altair-contact__select { cursor: pointer; }
+.altair-contact__select option { background: var(--burgundy-dark); color: var(--gold-pale); }
+.altair-contact__submit {
+  background: var(--bg-secondary); color: var(--gold-pale); border: none; cursor: pointer;
+  padding: 1rem 2rem; font-family: var(--font-display); font-size: 0.68rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  transition: background 0.3s, color 0.3s; margin-top: 0.5rem;
+}
+.altair-contact__submit:hover:not(:disabled) { background: var(--gold); color: var(--bg-secondary); }
+.altair-contact__submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Success */
+.altair-contact__success {
+  display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 3rem;
+}
+.altair-contact__success h3 { font-family: var(--font-heading); font-size: 2rem; font-weight: 300; color: var(--gold); }
+.altair-contact__success p { font-size: 0.875rem; color: var(--text-muted); }
+
+/* Info bar */
+.altair-contact__info {
+  display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+}
+.altair-contact__info-item { display: flex; flex-direction: column; gap: 0.3rem; text-align: center; }
+.altair-contact__info-label {
+  font-family: var(--font-display); font-size: 0.55rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.5;
+}
+.altair-contact__info-val { font-size: 0.85rem; color: var(--gold-pale); opacity: 0.8; }
+.altair-contact__info-link { text-decoration: none; transition: color 0.3s, opacity 0.3s; }
+.altair-contact__info-link:hover { color: var(--gold); opacity: 1; }
+
+@media (max-width: 900px) {
+  .altair-contact { padding: 5rem 1.75rem; }
+  .altair-contact__row { grid-template-columns: 1fr; }
+  .altair-contact__info { flex-direction: column; gap: 1.5rem; }
+}

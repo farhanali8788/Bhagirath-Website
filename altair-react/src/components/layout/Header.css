@@ -1,0 +1,158 @@
+/* ─── ALTAIR HEADER ─── */
+.altair-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1200;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+.altair-header--scrolled {
+  background: rgba(26, 15, 10, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--border-subtle);
+}
+.altair-header--menu-open {
+  background: rgba(26, 15, 10, 0.98) !important;
+  border-bottom-color: var(--border-subtle) !important;
+}
+
+.altair-header__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 2rem;
+  height: 80px;
+}
+
+/* Logo */
+.altair-logo {
+  display: flex; align-items: center; gap: 0.65rem;
+  background: none; border: none; cursor: pointer; padding: 0;
+  text-decoration: none;
+}
+.altair-logo__text {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+}
+
+/* Desktop nav */
+.altair-nav {
+  display: flex; gap: 2.25rem; justify-content: center;
+}
+.altair-nav__link {
+  background: none; border: none; cursor: pointer; padding: 0;
+  font-family: var(--font-display);
+  font-size: 0.67rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+  opacity: 0.72;
+  transition: opacity 0.3s, color 0.3s;
+}
+.altair-nav__link:hover { opacity: 1; color: var(--gold); }
+
+/* CTA */
+.altair-header__cta {
+  border: 1px solid var(--gold);
+  background: none; cursor: pointer;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: background 0.3s, color 0.3s;
+  white-space: nowrap;
+}
+.altair-header__cta:hover { background: var(--gold); color: var(--bg-primary); }
+
+/* Hamburger */
+.altair-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 40px; height: 40px;
+  background: none; border: none; outline: none; cursor: pointer;
+  z-index: 1300; position: relative;
+}
+.altair-bar {
+  display: block; width: 24px; height: 1.5px;
+  background: var(--gold);
+  transition: transform 0.35s var(--ease-out), opacity 0.3s, background 0.3s;
+  transform-origin: center;
+}
+.altair-hamburger--open .altair-bar--top { transform: translateY(6.5px) rotate(45deg); background: #fff; }
+.altair-hamburger--open .altair-bar--mid { opacity: 0; }
+.altair-hamburger--open .altair-bar--bot { transform: translateY(-6.5px) rotate(-45deg); background: #fff; }
+
+/* Mobile menu */
+.altair-mobile-menu {
+  position: fixed; inset: 0;
+  z-index: 1100;
+  background: #111111;
+  display: flex; flex-direction: column;
+  clip-path: circle(0% at calc(100% - 20px) 40px);
+  transition: clip-path 0.65s cubic-bezier(0.77, 0, 0.175, 1);
+  pointer-events: none;
+}
+.altair-mobile-menu--open {
+  clip-path: circle(170% at calc(100% - 20px) 40px);
+  pointer-events: all;
+}
+.altair-mobile-menu__inner {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; padding: 6rem 2.5rem 3rem;
+}
+.altair-mobile-nav {
+  display: flex; flex-direction: column; gap: 0;
+  margin-bottom: auto;
+}
+.altair-mobile-nav__link {
+  display: flex; align-items: center; gap: 1.25rem;
+  background: none; border: none; border-bottom: 1px solid rgba(201,169,110,0.1);
+  padding: 1.4rem 0; cursor: pointer; text-align: left; width: 100%;
+  font-family: var(--font-heading);
+  font-size: 2.2rem; font-weight: 300;
+  color: var(--text-primary);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: color 0.3s;
+}
+.altair-mobile-menu--open .altair-mobile-nav__link {
+  animation: mobileNavIn 0.5s var(--ease-out) forwards;
+}
+.altair-mobile-nav__link:hover { color: var(--gold); }
+.altair-mobile-nav__num {
+  font-family: var(--font-display); font-size: 0.65rem;
+  letter-spacing: 0.15em; color: var(--gold); opacity: 0.5;
+  margin-top: 0.25rem;
+}
+.altair-mobile-menu__footer {
+  margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem;
+}
+.altair-mobile-cta {
+  background: var(--burgundy); color: var(--gold-pale); border: none;
+  padding: 1rem 2rem; cursor: pointer; text-align: center;
+  font-family: var(--font-display); font-size: 0.67rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  transition: background 0.3s;
+}
+.altair-mobile-cta:hover { background: var(--burgundy-dark); }
+.altair-mobile-tagline {
+  font-family: var(--font-heading); font-style: italic;
+  font-size: 0.9rem; color: var(--gold); opacity: 0.4; text-align: center;
+}
+
+@keyframes mobileNavIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .altair-header__inner { grid-template-columns: 1fr auto; }
+  .altair-nav, .altair-header__cta { display: none; }
+  .altair-hamburger { display: flex; }
+}
+@media (max-width: 640px) {
+  .altair-mobile-menu { clip-path: circle(0% at calc(100% - 20px) 36px); }
+  .altair-mobile-menu--open { clip-path: circle(170% at calc(100% - 20px) 36px); }
+}

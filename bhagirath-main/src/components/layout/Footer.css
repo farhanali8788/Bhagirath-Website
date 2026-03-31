@@ -1,0 +1,239 @@
+/* ═══════════════════════════════════════════
+   THEME A — FOOTER
+═══════════════════════════════════════════ */
+.footer-a {
+  background: #1a1a1a;
+  position: relative;
+}
+
+/* Gold top accent line */
+.footer-a__top-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(152, 31, 31, 0.607) 30%,
+    rgba(152, 31, 31, 0.607) 70%,
+    transparent
+  );
+}
+
+/* ─── GRID ─── */
+.footer-a__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  gap: 80px;
+  padding: 80px 0 70px;
+}
+
+/* ─── BRAND COL ─── */
+.footer-a__logo {
+  text-decoration: none;
+  display: block;
+  margin-bottom: 4px;
+  width: fit-content;
+}
+
+.footer-a__logo-img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.92;
+  transition: opacity 0.3s ease;
+}
+
+.footer-a__logo:hover .footer-a__logo-img {
+  opacity: 1;
+}
+
+.footer-a__logo-text {
+  height: 24px;
+  width: auto;
+  margin-top: 10px;
+  object-fit: contain;
+  opacity: 0.92;
+  transition: opacity 0.3s ease;
+}
+
+.footer-a__tagline {
+  font-size: 0.88rem;
+  color: #777777;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  margin-bottom: 28px;
+  max-width: 300px;
+}
+
+/* Social icons */
+.footer-a__socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-a__social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  color: #777777;
+  text-decoration: none;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-a__social-icon:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(201, 168, 76, 0.08);
+  transform: translateY(-3px);
+}
+
+/* ─── COLUMN HEADINGS ─── */
+.footer-a__col-heading {
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+/* ─── NAV LINKS ─── */
+.footer-a__links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-a__link {
+  font-size: 0.88rem;
+  color: #777777;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.footer-a__link:hover {
+  color: #e0e0e0;
+  padding-left: 6px;
+}
+
+.footer-a__link--active {
+  color: var(--accent-gold) !important;
+}
+
+/* ─── CONTACT LIST ─── */
+.footer-a__contact-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer-a__contact-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-a__contact-label {
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #777777;
+  opacity: 0.6;
+}
+
+.footer-a__contact-value {
+  font-size: 0.88rem;
+  color: #999999;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+a.footer-a__contact-value:hover {
+  color: var(--accent-gold);
+}
+
+/* ─── BOTTOM BAR ─── */
+.footer-a__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 24px 0;
+}
+
+.footer-a__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-a__copyright,
+.footer-a__credit {
+  font-size: 0.75rem;
+  color: #777777;
+  letter-spacing: 0.5px;
+  opacity: 0.5;
+}
+
+.footer-a__parent {
+  color: var(--accent-gold);
+  opacity: 1;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .footer-a__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 60px;
+  }
+  .footer-a__col--brand {
+    grid-column: span 2;
+  }
+  .footer-a__tagline {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-a__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+    padding: 60px 0 50px;
+  }
+  .footer-a__col--brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-a__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .footer-a__col--brand {
+    grid-column: span 1;
+  }
+  .footer-a__bottom-inner {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

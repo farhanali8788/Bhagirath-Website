@@ -1,0 +1,55 @@
+.altair-about {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 85vh; background: var(--bg-cream);
+}
+.altair-about__visual {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #4a1212 0%, #2c1a0e 50%, #1a0f0a 100%);
+}
+.altair-about__visual-inner { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.altair-about__emblem { position: absolute; z-index: 1; opacity: 0.9; }
+.altair-about__visual-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.25; transform: scale(1.05); transition: transform 8s ease;
+}
+.altair-about:hover .altair-about__visual-img { transform: scale(1); }
+.altair-about__visual-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(107,30,30,0.25) 0%, transparent 60%);
+}
+.altair-about__content {
+  padding: 6rem 5rem; display: flex; flex-direction: column; justify-content: center;
+  color: var(--text-dark);
+}
+.altair-about__label {
+  font-family: var(--font-display); font-size: 0.6rem;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--burgundy); margin-bottom: 1.25rem;
+}
+.altair-about__title {
+  font-family: var(--font-heading); font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-weight: 300; line-height: 1.1; color: var(--text-dark); margin-bottom: 2rem;
+}
+.altair-about__title em { font-style: italic; color: var(--burgundy); }
+.altair-about__body {
+  font-size: 0.88rem; line-height: 1.95; color: var(--text-mid);
+  margin-bottom: 1.25rem; max-width: 480px;
+}
+.altair-about__stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;
+}
+.altair-about__stat { border-left: 2px solid var(--gold); padding-left: 1rem; }
+.altair-about__stat-val {
+  display: block; font-family: var(--font-heading); font-size: 1.4rem;
+  color: var(--burgundy); font-weight: 400;
+}
+.altair-about__stat-key {
+  display: block; font-family: var(--font-display); font-size: 0.57rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mid); opacity: 0.65;
+}
+@media (max-width: 900px) {
+  .altair-about { grid-template-columns: 1fr; }
+  .altair-about__visual { min-height: 300px; }
+  .altair-about__content { padding: 4rem 1.75rem; }
+  .altair-about__stats { grid-template-columns: 1fr 1fr; }
+}

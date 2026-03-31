@@ -1,0 +1,72 @@
+.altair-amenities {
+  background: var(--bg-primary); padding: var(--section-padding);
+  position: relative; overflow: hidden;
+}
+.altair-amenities__watermark {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-family: var(--font-heading); font-size: 18vw; font-weight: 300;
+  color: rgba(201,169,110,0.025); white-space: nowrap; pointer-events: none;
+  letter-spacing: 0.1em; user-select: none; z-index: 0;
+}
+.altair-amenities__header { text-align: center; margin-bottom: 5rem; position: relative; z-index: 1; }
+.altair-amenities__label {
+  font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.65; margin-bottom: 1rem;
+  display: block;
+}
+.altair-amenities__title {
+  font-family: var(--font-heading); font-size: clamp(2.5rem, 4vw, 4.25rem);
+  font-weight: 300; line-height: 1.1; color: var(--text-primary);
+}
+.altair-amenities__title em { font-style: italic; color: var(--gold); }
+
+.altair-amenities__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  max-width: 1100px; margin: 0 auto; position: relative; z-index: 1;
+}
+.altair-amenity-card {
+  background: var(--bg-primary); padding: 2.75rem 2rem; text-align: center;
+  transition: background 0.4s; cursor: default; position: relative; overflow: hidden;
+}
+.altair-amenity-card:hover { background: rgba(107,30,30,0.25); }
+.altair-amenity-card__bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--gold); transform: scaleX(0); transition: transform 0.4s var(--ease-out);
+}
+.altair-amenity-card:hover .altair-amenity-card__bar { transform: scaleX(1); }
+.altair-amenity-card__icon {
+  width: 42px; height: 42px; margin: 0 auto 1.25rem; color: var(--gold); opacity: 0.75;
+  transition: opacity 0.3s;
+}
+.altair-amenity-card:hover .altair-amenity-card__icon { opacity: 1; }
+.altair-amenity-card__name {
+  font-family: var(--font-display); font-size: 0.63rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-pale); margin-bottom: 0.4rem;
+}
+.altair-amenity-card__desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.5rem; }
+.altair-amenity-card__floor {
+  font-family: var(--font-display); font-size: 0.52rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.35;
+}
+
+.altair-amenities__extras {
+  text-align: center; margin-top: 2.5rem; position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 0.6rem;
+}
+.altair-amenities__extras span {
+  font-family: var(--font-display); font-size: 0.58rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.35;
+}
+.altair-amenities__dot { opacity: 0.2 !important; }
+
+@media (max-width: 900px) {
+  .altair-amenities { padding: 5rem 0; }
+  .altair-amenities__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .altair-amenities__grid { grid-template-columns: 1fr 1fr; }
+  .altair-amenity-card { padding: 2rem 1.25rem; }
+}
