@@ -64,7 +64,7 @@
   background:
     linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.35) 40%,
+      rgba(0, 0, 0, 0.15) 40%,
       rgba(0, 0, 0, 0.05) 100%
     ),
     linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 60%);
@@ -140,7 +140,7 @@
 }
 .pj-carousel__btn-primary:hover {
   background: transparent;
-  color: var(--accent-gold);
+  /* color: var(--accent-gold); */
 }
 .pj-carousel__btn-secondary {
   display: inline-block;
@@ -220,7 +220,7 @@
 .pj-carousel__arrows {
   position: absolute;
   bottom: 40px;
-  right: 40px;
+  right: 100px;
   display: flex;
   gap: 10px;
   z-index: 3;

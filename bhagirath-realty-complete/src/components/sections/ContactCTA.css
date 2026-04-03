@@ -121,14 +121,14 @@
 
 .cta-section__btn-primary:hover {
   background: transparent;
-  color: var(--accent-gold);
+  color: var(--text-muted);
 }
 
 .cta-section__btn-secondary {
   display: inline-block;
   padding: 16px 40px;
   background: transparent;
-  color: var(--text-primary);
+  color: var(--accent-gold);
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 400;
@@ -143,7 +143,8 @@
 }
 
 .cta-section__btn-secondary:hover {
-  border-color: var(--text-primary);
+  border-color: var(--text-muted);
+  color: var(--text-muted);
 }
 
 /* ─── CONTACT STRIP ─── */

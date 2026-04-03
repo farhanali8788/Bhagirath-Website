@@ -155,12 +155,12 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/projects" className="footer-a__link">
-                Bhagirath Heights
+                Altair
               </Link>
             </li>
             <li>
               <Link to="/projects" className="footer-a__link">
-                Bhagirath Commerce Park
+                Navkar
               </Link>
             </li>
           </ul>

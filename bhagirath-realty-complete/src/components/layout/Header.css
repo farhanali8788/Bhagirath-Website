@@ -62,8 +62,8 @@
   font-family: var(--font-body);
   font-size: 0.6rem;
   font-weight: 400;
-  letter-spacing: 5px;
-  line-height: 1;
+  letter-spacing: 0.25rem;
+  line-height: 0.22rem;
   color: var(--accent-gold);
   text-transform: uppercase;
 }

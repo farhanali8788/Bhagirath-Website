@@ -60,6 +60,7 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  padding: 50px 0 0 0;
 }
 
 /* ─── Container ─── */
