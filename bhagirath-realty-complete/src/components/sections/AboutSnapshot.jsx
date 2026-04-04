@@ -25,7 +25,7 @@ const AboutSnapshot = () => {
         >
           <div className="about-snap__img-main">
             <img
-              src="/images/about-main.webp"
+              src="/home-page-images/panchtatva-hero-bg.png"
               alt="Bhagirath Realty development"
             />
           </div>

@@ -45,19 +45,19 @@ const projects = [
     link: "https://altair.bhagirathrealty.com",
     featured: false,
   },
-  {
-    id: "project-3",
-    name: "Bhagirath Villas",
-    tagline: "Exclusive Villas & Bungalows",
-    type: "Villas / Bungalows",
-    status: "Upcoming",
-    location: " Nagpur",
-    description:
-      "Spacious independent villas with private gardens, premium finishes and gated community infrastructure for those who demand the finest.",
-    image: "/images/hero-bg-a.webp",
-    link: null,
-    featured: false,
-  },
+  // {
+  //   id: "project-3",
+  //   name: "Bhagirath Villas",
+  //   tagline: "Exclusive Villas & Bungalows",
+  //   type: "Villas / Bungalows",
+  //   status: "Upcoming",
+  //   location: " Nagpur",
+  //   description:
+  //     "Spacious independent villas with private gardens, premium finishes and gated community infrastructure for those who demand the finest.",
+  //   image: "/images/hero-bg-a.webp",
+  //   link: null,
+  //   featured: false,
+  // },
 ];
 
 export default projects;

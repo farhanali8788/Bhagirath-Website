@@ -276,6 +276,10 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .pj-carousel__content {
+    padding: 100px 20px 30px 20px;
+  }
+
   .pj-carousel__dots {
     right: 20px;
     bottom: 80px;
@@ -289,9 +293,7 @@
   .pj-carousel {
     height: 100svh;
   }
-  .pj-carousel__content {
-    padding-top: 100px;
-  }
+
   .pj-carousel__arrows {
     display: none;
   }

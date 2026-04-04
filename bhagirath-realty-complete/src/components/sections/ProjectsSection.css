@@ -108,6 +108,7 @@
   overflow: hidden;
   transition: transform 0.4s var(--ease-out);
   position: relative;
+  margin-bottom: 30px;
 }
 
 .proj-card:hover {
