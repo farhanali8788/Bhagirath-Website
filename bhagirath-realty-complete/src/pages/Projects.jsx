@@ -171,7 +171,10 @@ const Projects = () => {
       {/* Page hero — single image, matches About/Contact style */}
       <section className="pj-hero">
         <div className="pj-hero__bg">
-          <img src="/images/projects-hero.webp" alt="Bhagirath Realty Projects" />
+          <img
+            src="/images/projects-hero.webp"
+            alt="Bhagirath Realty Projects"
+          />
           <div className="pj-hero__overlay" />
         </div>
         <div className="container pj-hero__content">
