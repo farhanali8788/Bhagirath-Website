@@ -17,7 +17,7 @@ const Hero = () => {
   return (
     <section className="altair-hero" id="hero">
       <div className="altair-hero__bg">
-        <img src="/images/hero-bg.jpg" alt="" className="altair-hero__bg-img" />
+        <img src="images/image-4.webp" alt="" className="altair-hero__bg-img" />
         <div className="altair-hero__overlay" />
       </div>
 
@@ -25,28 +25,45 @@ const Hero = () => {
         <div className="container">
           <p className="altair-hero__eyebrow">
             <span className="altair-hero__eyebrow-line" />
-            Civil Lines, Nagpur &nbsp;·&nbsp; {META.group} · Est. {META.established}
+            Civil Lines, Nagpur &nbsp;·&nbsp; {META.group} · Est.{" "}
+            {META.established}
           </p>
 
           <h1 className="altair-hero__heading">
             <span className="altair-hero__line">The</span>
-            <span className="altair-hero__line altair-hero__line--gold">Brightest</span>
+            <span className="altair-hero__line altair-hero__line--gold">
+              Brightest
+            </span>
             <span className="altair-hero__line">Star</span>
           </h1>
 
           <p className="altair-hero__sub">
-            A 32-floor icon ascending above Civil Lines. Where celestial ambition
-            <br />meets earthly luxury — curated for those who live at the zenith.
+            A 32-floor icon ascending above Civil Lines. Where celestial
+            ambition
+            <br />
+            meets earthly luxury — curated for those who live at the zenith.
           </p>
 
           <div className="altair-hero__ctas">
-            <button className="altair-hero__btn-primary" onClick={() => scrollTo("contact")}>
+            <button
+              className="altair-hero__btn-primary"
+              onClick={() => scrollTo("contact")}
+            >
               Book Consultation
             </button>
-            <button className="altair-hero__btn-ghost" onClick={() => scrollTo("residences")}>
+            <button
+              className="altair-hero__btn-ghost"
+              onClick={() => scrollTo("residences")}
+            >
               View Residences
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>

@@ -16,7 +16,9 @@ const Residences = () => {
           ref={headerRef}
           className={`altair-residences__header anim-fade-up ${headerVisible ? "is-visible" : ""}`}
         >
-          <p className="altair-residences__label">Floor Plans &amp; Configurations</p>
+          <p className="altair-residences__label">
+            Floor Plans &amp; Configurations
+          </p>
           <h2 className="altair-residences__title">
             Choose Your <em>Sanctuary</em>
           </h2>
@@ -54,9 +56,15 @@ const Residences = () => {
 
           <div className="altair-residences__visual">
             <div className="altair-residences__visual-inner">
-              <img src={`/images/residence-${res.id}.jpg`} alt={res.label} className="altair-residences__img" />
+              <img
+                src={`/images/residence-${res.id}.webp`}
+                alt={res.label}
+                className="altair-residences__img"
+              />
               <div className="altair-residences__visual-fallback">
-                <span className="altair-residences__visual-label-big">{res.label}</span>
+                <span className="altair-residences__visual-label-big">
+                  {res.label}
+                </span>
               </div>
             </div>
             <div className="altair-residences__visual-badge">

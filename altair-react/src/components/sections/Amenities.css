@@ -1,72 +1,452 @@
+/* ─── Amenities · Cinematic Bento ─────────────────────────────── */
+
 .altair-amenities {
-  background: var(--bg-primary); padding: var(--section-padding);
-  position: relative; overflow: hidden;
+  background: var(--bg-primary);
+  padding: var(--section-padding);
+  position: relative;
+  overflow: hidden;
 }
-.altair-amenities__watermark {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  font-family: var(--font-heading); font-size: 18vw; font-weight: 300;
-  color: rgba(201,169,110,0.025); white-space: nowrap; pointer-events: none;
-  letter-spacing: 0.1em; user-select: none; z-index: 0;
+
+/* ── Grain overlay ─── */
+.altair-amenities::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
 }
-.altair-amenities__header { text-align: center; margin-bottom: 5rem; position: relative; z-index: 1; }
-.altair-amenities__label {
-  font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.35em;
-  text-transform: uppercase; color: var(--gold); opacity: 0.65; margin-bottom: 1rem;
+
+/* ── Ambient glow ─── */
+.altair-amenities__glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 169, 110, 0.06) 0%,
+    transparent 70%
+  );
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ─── */
+.altair-amenities__header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.altair-amenities__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.altair-amenities__eyebrow-line {
   display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.45;
 }
+
+.altair-amenities__label {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
 .altair-amenities__title {
-  font-family: var(--font-heading); font-size: clamp(2.5rem, 4vw, 4.25rem);
-  font-weight: 300; line-height: 1.1; color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: #f0ece4;
+  letter-spacing: -0.01em;
 }
-.altair-amenities__title em { font-style: italic; color: var(--gold); }
 
-.altair-amenities__grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1px; background: var(--border-subtle);
-  border: 1px solid var(--border-subtle);
-  max-width: 1100px; margin: 0 auto; position: relative; z-index: 1;
+.altair-amenities__title em {
+  font-style: italic;
+  color: var(--gold);
+  position: relative;
 }
+
+/* ── Bento Grid ─── */
+.altair-amenities__bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 320px 240px 240px;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card position assignments */
+.altair-amenity-card:nth-child(1) {
+  grid-column: 1 / 6;
+  grid-row: 1 / 2;
+} /* Pool – wide */
+.altair-amenity-card:nth-child(2) {
+  grid-column: 6 / 9;
+  grid-row: 1 / 2;
+}
+.altair-amenity-card:nth-child(3) {
+  grid-column: 9 / 13;
+  grid-row: 1 / 3;
+} /* Miniplex – tall */
+.altair-amenity-card:nth-child(4) {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+}
+.altair-amenity-card:nth-child(5) {
+  grid-column: 4 / 6;
+  grid-row: 2 / 3;
+}
+.altair-amenity-card:nth-child(6) {
+  grid-column: 6 / 9;
+  grid-row: 2 / 3;
+}
+.altair-amenity-card:nth-child(7) {
+  grid-column: 1 / 5;
+  grid-row: 3 / 4;
+}
+.altair-amenity-card:nth-child(8) {
+  grid-column: 5 / 9;
+  grid-row: 3 / 4;
+}
+.altair-amenity-card:nth-child(9) {
+  grid-column: 9 / 13;
+  grid-row: 3 / 4;
+}
+
+/* ── Card Base ─── */
 .altair-amenity-card {
-  background: var(--bg-primary); padding: 2.75rem 2rem; text-align: center;
-  transition: background 0.4s; cursor: default; position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--bg-secondary, #1a0e08);
 }
-.altair-amenity-card:hover { background: rgba(107,30,30,0.25); }
-.altair-amenity-card__bar {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-  background: var(--gold); transform: scaleX(0); transition: transform 0.4s var(--ease-out);
+
+/* Image layer */
+.altair-amenity-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    filter 0.6s ease;
+  filter: brightness(0.85) saturate(0.7);
+  transform-origin: center center;
 }
-.altair-amenity-card:hover .altair-amenity-card__bar { transform: scaleX(1); }
-.altair-amenity-card__icon {
-  width: 42px; height: 42px; margin: 0 auto 1.25rem; color: var(--gold); opacity: 0.75;
-  transition: opacity 0.3s;
+
+/* Gradient overlay */
+.altair-amenity-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(12, 6, 3, 0.44) 0%,
+    rgba(12, 6, 3, 0.22) 45%,
+    rgba(12, 6, 3, 0.1) 100%
+  );
+  transition: opacity 0.5s ease;
+  z-index: 1;
 }
-.altair-amenity-card:hover .altair-amenity-card__icon { opacity: 1; }
+
+/* Gold shimmer border on hover */
+.altair-amenity-card__border {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201, 169, 110, 0);
+  border-radius: 4px;
+  transition: border-color 0.4s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Content */
+.altair-amenity-card__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.6rem 1.6rem 1.5rem;
+}
+
+.altair-amenity-card__floor-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.48rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.35s ease 0.05s,
+    transform 0.35s ease 0.05s;
+  margin-bottom: 0.45rem;
+  padding: 0.22rem 0.65rem;
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
 .altair-amenity-card__name {
-  font-family: var(--font-display); font-size: 0.63rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gold-pale); margin-bottom: 0.4rem;
-}
-.altair-amenity-card__desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.5rem; }
-.altair-amenity-card__floor {
-  font-family: var(--font-display); font-size: 0.52rem; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--gold); opacity: 0.35;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f0ece4;
+  margin: 0 0 0.4rem;
+  transition: letter-spacing 0.4s ease;
 }
 
-.altair-amenities__extras {
-  text-align: center; margin-top: 2.5rem; position: relative; z-index: 1;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 0.6rem;
+.altair-amenity-card__desc {
+  font-size: 0.72rem;
+  color: rgba(240, 236, 228, 0.6);
+  line-height: 1.55;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    max-height 0.45s ease,
+    opacity 0.4s ease 0.08s,
+    transform 0.4s ease 0.08s;
 }
-.altair-amenities__extras span {
-  font-family: var(--font-display); font-size: 0.58rem;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--gold); opacity: 0.35;
-}
-.altair-amenities__dot { opacity: 0.2 !important; }
 
-@media (max-width: 900px) {
-  .altair-amenities { padding: 5rem 0; }
-  .altair-amenities__grid { grid-template-columns: repeat(2, 1fr); }
+.altair-amenity-card__gold-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 4;
 }
-@media (max-width: 480px) {
-  .altair-amenities__grid { grid-template-columns: 1fr 1fr; }
-  .altair-amenity-card { padding: 2rem 1.25rem; }
+
+/* Icon badge — top right */
+.altair-amenity-card__icon-badge {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(201, 169, 110, 0.12);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  opacity: 0.7;
+  transition:
+    opacity 0.35s,
+    background 0.35s,
+    transform 0.35s;
+  z-index: 3;
+}
+
+/* ── Hover States ─── */
+.altair-amenity-card:hover .altair-amenity-card__img {
+  transform: scale(1.07);
+  filter: brightness(0.45) saturate(0.9);
+}
+
+.altair-amenity-card:hover .altair-amenity-card__border {
+  border-color: rgba(201, 169, 110, 0.35);
+}
+
+.altair-amenity-card:hover .altair-amenity-card__gold-line {
+  transform: scaleX(1);
+}
+
+.altair-amenity-card:hover .altair-amenity-card__floor-tag {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.altair-amenity-card:hover .altair-amenity-card__name {
+  letter-spacing: 0.28em;
+}
+
+.altair-amenity-card:hover .altair-amenity-card__desc {
+  max-height: 60px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.altair-amenity-card:hover .altair-amenity-card__icon-badge {
+  opacity: 1;
+  background: rgba(201, 169, 110, 0.2);
+  transform: scale(1.1);
+}
+
+/* ── Marquee Extras ─── */
+.altair-amenities__marquee-wrap {
+  position: relative;
+  z-index: 1;
+  margin-top: 2.5rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(201, 169, 110, 0.1);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+  padding: 0.85rem 0;
+}
+
+/* Fade edges */
+.altair-amenities__marquee-wrap::before,
+.altair-amenities__marquee-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.altair-amenities__marquee-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.altair-amenities__marquee-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.altair-amenities__marquee {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: amenitiesMarquee 28s linear infinite;
+}
+
+.altair-amenities__marquee-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+}
+
+.altair-amenities__marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 0 1.8rem;
+}
+
+.altair-amenities__marquee-item span {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.4;
+}
+
+.altair-amenities__marquee-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.2;
+  flex-shrink: 0;
+}
+
+@keyframes amenitiesMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── Scroll Animation ─── */
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.anim-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-delay-1 {
+  transition-delay: 0.1s;
+}
+.anim-delay-2 {
+  transition-delay: 0.2s;
+}
+
+/* ── Responsive ─── */
+@media (max-width: 1024px) {
+  .altair-amenities__bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 8px;
+  }
+  .altair-amenity-card:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .altair-amenity-card:nth-child(1) {
+    grid-column: 1 / 3;
+  } /* Pool spans full */
+  .altair-amenity-card:nth-child(3) {
+    grid-column: auto;
+  } /* Miniplex normal */
+}
+
+@media (max-width: 600px) {
+  .altair-amenities__bento {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .altair-amenity-card:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 180px;
+  }
+  .altair-amenity-card:nth-child(1) {
+    grid-column: 1 / 3;
+    min-height: 220px;
+  }
+  .altair-amenity-card__content {
+    padding: 1.1rem;
+  }
+  .altair-amenity-card__name {
+    font-size: 0.6rem;
+  }
+  .altair-amenity-card__desc {
+    display: none;
+  }
 }

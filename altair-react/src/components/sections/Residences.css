@@ -1,95 +1,195 @@
 .altair-residences {
-  background: var(--bg-cream); color: var(--text-dark);
+  background: var(--bg-cream);
+  color: var(--text-dark);
   padding: var(--section-padding);
 }
-.altair-residences__header { text-align: center; margin-bottom: 4rem; }
+
+.altair-residences__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
 .altair-residences__label {
-  font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.35em;
-  text-transform: uppercase; color: var(--burgundy); margin-bottom: 1rem; display: block;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+  display: block;
 }
 .altair-residences__title {
-  font-family: var(--font-heading); font-size: clamp(2.5rem, 4vw, 4.25rem);
-  font-weight: 300; line-height: 1.1; color: var(--text-dark);
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 4.25rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text-dark);
 }
-.altair-residences__title em { font-style: italic; color: var(--burgundy); }
+.altair-residences__title em {
+  font-style: italic;
+  color: var(--burgundy);
+}
 
 /* Tabs */
 .altair-residences__tabs {
-  display: flex; justify-content: center; max-width: 520px; margin: 0 auto 4rem;
-  border: 1px solid rgba(107,30,30,0.2);
+  display: flex;
+  justify-content: center;
+  max-width: 520px;
+  margin: 0 auto 4rem;
+  border: 1px solid rgba(107, 30, 30, 0.2);
 }
 .altair-residences__tab {
-  flex: 1; padding: 0.7rem 1rem; background: transparent; cursor: pointer;
-  border: none; border-right: 1px solid rgba(107,30,30,0.2);
-  font-family: var(--font-display); font-size: 0.63rem;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mid);
+  flex: 1;
+  padding: 0.7rem 1rem;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  border-right: 1px solid rgba(107, 30, 30, 0.2);
+  font-family: var(--font-display);
+  font-size: 0.63rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-mid);
   transition: all 0.3s;
 }
-.altair-residences__tab:last-child { border-right: none; }
-.altair-residences__tab--active { background: var(--burgundy); color: var(--gold-pale); }
+.altair-residences__tab:last-child {
+  border-right: none;
+}
+.altair-residences__tab--active {
+  background: var(--burgundy);
+  color: var(--gold-pale);
+}
 .altair-residences__tab:not(.altair-residences__tab--active):hover {
-  background: rgba(107,30,30,0.08);
+  background: rgba(107, 30, 30, 0.08);
 }
 
 /* Panel */
 .altair-residences__panel {
-  display: grid; grid-template-columns: 1.1fr 0.9fr;
-  gap: 5rem; align-items: center; max-width: 1000px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .altair-residences__res-tag {
-  font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--burgundy); margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 0.5rem;
 }
 .altair-residences__res-title {
-  font-family: var(--font-heading); font-size: 3.5rem; font-weight: 300;
-  color: var(--text-dark); margin-bottom: 1.5rem; line-height: 1;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  line-height: 1;
 }
 .altair-residences__res-desc {
-  font-size: 0.875rem; line-height: 1.95; color: var(--text-mid); margin-bottom: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.95;
+  color: var(--text-mid);
+  margin-bottom: 2rem;
 }
 .altair-residences__features {
-  list-style: none; display: flex; flex-direction: column; gap: 0.65rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 .altair-residences__features li {
-  font-size: 0.82rem; color: var(--text-mid);
-  padding-left: 1.5rem; position: relative; line-height: 1.5;
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
 }
 .altair-residences__features li::before {
-  content: "—"; position: absolute; left: 0; color: var(--gold);
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
 }
 
 /* Visual */
-.altair-residences__visual { position: relative; }
+.altair-residences__visual {
+  position: relative;
+}
 .altair-residences__visual-inner {
-  aspect-ratio: 4/5; position: relative; overflow: hidden;
-  background: linear-gradient(135deg, var(--bg-secondary), var(--burgundy-dark));
-  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 10/8;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--bg-secondary),
+    var(--burgundy-dark)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .altair-residences__img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
 }
 .altair-residences__visual-fallback {
-  position: relative; z-index: 1; display: flex; align-items: center; justify-content: center;
-  width: 100%; height: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 .altair-residences__visual-label-big {
-  font-family: var(--font-heading); font-size: 4rem; font-weight: 300;
-  color: var(--gold); opacity: 0.1; letter-spacing: 0.05em;
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.1;
+  letter-spacing: 0.05em;
 }
 .altair-residences__visual-badge {
-  position: absolute; bottom: -1rem; right: 0;
-  background: var(--burgundy); padding: 0.5rem 1.1rem;
-  font-family: var(--font-display); font-size: 0.58rem;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-pale);
+  position: absolute;
+  bottom: -1rem;
+  right: 0;
+  background: var(--burgundy);
+  padding: 0.5rem 1.1rem;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
 }
 
 @media (max-width: 900px) {
-  .altair-residences { padding: 5rem 0; }
-  .altair-residences__panel { grid-template-columns: 1fr; gap: 2.5rem; }
-  .altair-residences__visual { order: -1; }
-  .altair-residences__visual-badge { bottom: 0; font-size: 0.52rem; }
+  .altair-residences {
+    padding: 5rem 0;
+  }
+  .altair-residences__panel {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .altair-residences__visual {
+    order: -1;
+  }
+  .altair-residences__visual-badge {
+    bottom: 0;
+    font-size: 0.52rem;
+  }
 }
 @media (max-width: 480px) {
-  .altair-residences__tabs { max-width: 100%; }
-  .altair-residences__tab { font-size: 0.55rem; padding: 0.65rem 0.5rem; }
+  .altair-residences__tabs {
+    max-width: 100%;
+  }
+  .altair-residences__tab {
+    font-size: 0.55rem;
+    padding: 0.65rem 0.5rem;
+  }
 }
