@@ -9,18 +9,25 @@ const WhatsAppFloat = () => {
   useEffect(() => {
     const s = setTimeout(() => setVisible(true), 2500);
     const t = setTimeout(() => setTooltip(false), 7000);
-    return () => { clearTimeout(s); clearTimeout(t); };
+    return () => {
+      clearTimeout(s);
+      clearTimeout(t);
+    };
   }, []);
 
   const url = `https://wa.me/${META.whatsapp}?text=${encodeURIComponent("Hello, I'd like to enquire about Altair by Sri Bhagirath Realty.")}`;
 
   return (
     <a
-      href={url} target="_blank" rel="noopener noreferrer"
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`altair-wa ${visible ? "altair-wa--visible" : ""}`}
       aria-label="Chat on WhatsApp"
     >
-      <span className={`altair-wa__tooltip ${tooltip ? "altair-wa__tooltip--visible" : ""}`}>
+      <span
+        className={`altair-wa__tooltip ${tooltip ? "altair-wa__tooltip--visible" : ""}`}
+      >
         Enquire about Altair
       </span>
       <span className="altair-wa__pulse" />
