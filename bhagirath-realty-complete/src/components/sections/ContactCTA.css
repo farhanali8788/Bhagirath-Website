@@ -121,7 +121,7 @@
 
 .cta-section__btn-primary:hover {
   background: transparent;
-  color: var(--text-muted);
+  color: var(--bg-primary);
 }
 
 .cta-section__btn-secondary {
@@ -138,13 +138,14 @@
   border: 1px solid rgba(240, 236, 228, 0.25);
   border-radius: 2px;
   transition:
-    border-color 0.35s ease,
+    background 0.35s ease,
     color 0.35s ease;
 }
 
 .cta-section__btn-secondary:hover {
-  border-color: var(--text-muted);
-  color: var(--text-muted);
+  /* border-color: var(--text-muted); */
+  color: var(--accent-gold);
+  background: var(--bg-primary);
 }
 
 /* ─── CONTACT STRIP ─── */

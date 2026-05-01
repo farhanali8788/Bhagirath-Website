@@ -21,14 +21,14 @@ const slideContent = {
       },
     },
     home: {
-      eyebrow: "Est. 1946 · Nagpur, Maharashtra",
+      eyebrow: "Managed FarmLands · Nagpur",
       heading: "Building Trust.",
       headingGold: "Delivering Quality.",
       sub: "Welcome to Sri Bhagirath Realty Private Limited, a real estate developer committed to delivering reliable and high-quality developments in Nagpur.",
       cta: { label: "Explore Projects", href: "/projects", external: false },
     },
   },
-  "project-2": {
+  altair: {
     projects: {
       eyebrow: "Residential — Wardha Road",
       heading: "Thoughtfully Designed",
@@ -45,10 +45,10 @@ const slideContent = {
       heading: "Thoughtfully Designed.",
       headingGold: "Comfortably Built.",
       sub: "At Sri Bhagirath Realty Private Limited, we focus on creating residential spaces that offer comfort, functionality, and long-term value.",
-      cta: { label: "Book Consultation", href: "/contact", external: false },
+      cta: { label: "Explore Projects", href: "/projects", external: false },
     },
   },
-  "project-3": {
+  navkar: {
     projects: {
       eyebrow: "Commercial — Hingna Road",
       heading: "Spaces that Support",
@@ -68,30 +68,29 @@ const slideContent = {
       cta: { label: "View All Projects", href: "/projects", external: false },
     },
   },
-  "project-4": {
-    // projects: {
-    //   eyebrow: "Commercial — Hingna Road",
-    //   heading: "Spaces that Support",
-    //   headingGold: "Growth.",
-    //   sub: "Our commercial developments are planned to provide businesses with well-located, efficient spaces in Nagpur's high-growth corridors.",
-    //   cta: {
-    //     label: "Visit Navkar ↗",
-    //     href: "https://navkar.bhagirathrealty.com",
-    //     external: true,
-    //   },
-    // },
-
-    home: {
-      eyebrow: "Commercial Developments · Nagpur",
-      heading: "Spaces that",
-      headingGold: "Support Growth.",
-      sub: "Our commercial developments are planned to provide businesses with well-located and efficient spaces.",
-      cta: { label: "View All Projects", href: "/projects", external: false },
-    },
-  },
+  // complex: {
+  //   projects: {
+  //     eyebrow: "Commercial — Hingna Road",
+  //     heading: "Spaces that Support",
+  //     headingGold: "Growth.",
+  //     sub: "Our commercial developments are planned to provide businesses with well-located, efficient spaces in Nagpur's high-growth corridors.",
+  //     cta: {
+  //       label: "Visit Navkar ↗",
+  //       href: "https://navkar.bhagirathrealty.com",
+  //       external: true,
+  //     },
+  //   },
+  //   home: {
+  //     eyebrow: "Industrial Developments · Nagpur",
+  //     heading: "Infrastructure Built",
+  //     headingGold: "for Productivity.",
+  //     sub: "Sri Bhagirath Realty also focuses on developing industrial spaces that support operational efficiency and long-term business needs.",
+  //     cta: { label: "View All Projects", href: "/projects", external: false },
+  //   },
+  // },
 };
 
-const slides = projects.slice(0, 4);
+const slides = projects.slice(0, 3); // Only show the first 3 projects in the carousel
 
 // ── Props ──────────────────────────────────────────────────────────
 // variant: "home" | "projects"

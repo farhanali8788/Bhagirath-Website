@@ -64,8 +64,8 @@ const AboutSnapshot = () => {
 
           <p className="about-snap__body">
             Bhagirath Realty has been shaping Nagpur's landscape for over 15
-            years — delivering farm estates, premium residences, villas and
-            commercial spaces that stand the test of time.
+            years — delivering Managed FarmLands, premium residences, villas,
+            Industrial and commercial spaces that stand the test of time.
           </p>
 
           <p className="about-snap__body">
@@ -75,7 +75,7 @@ const AboutSnapshot = () => {
           </p>
 
           <Link to="/about" className="about-snap__link">
-            Our Story
+            Our Journey
             <span className="about-snap__link-arrow">→</span>
           </Link>
         </div>

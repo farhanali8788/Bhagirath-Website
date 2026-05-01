@@ -318,17 +318,25 @@ const About = () => {
                   name: "Altair",
                   type: "Residential — 32 Floors",
                   location: "Civil Lines, Nagpur",
-                  status: "Upcoming",
+                  status: "Active",
                   href: "https://altair.bhagirathrealty.com",
                   external: true,
                 },
                 {
                   name: "Navkar",
-                  type: "Commercial",
+                  type: "Industrial",
                   location: "Nagpur",
-                  status: "Upcoming",
+                  status: "Active",
                   href: "https://navkar.bhagirathrealty.com",
                   external: true,
+                },
+                {
+                  name: "Complex",
+                  type: "Commercial",
+                  location: "Wardhaman Nagar,Nagpur",
+                  status: "Upcoming",
+                  href: "../projects",
+                  external: false,
                 },
               ].map((p, i) => {
                 const [ref, visible] = [null, true]; // inline animation via CSS

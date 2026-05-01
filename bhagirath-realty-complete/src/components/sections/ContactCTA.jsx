@@ -69,7 +69,7 @@ const ContactCTA = () => {
             <div className="cta-section__strip-item">
               <span className="cta-section__strip-label">Visit Us</span>
               <span className="cta-section__strip-value">
-                Nagpur, Maharashtra
+                Sarvodaya Cloth Market, Gandhibagh, Nagpur - 440002
               </span>
             </div>
           </div>

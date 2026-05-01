@@ -8,8 +8,8 @@ const projects = [
   {
     id: "panchtatva",
     name: "Panchtatva",
-    tagline: "A Gated Luxury Farm Estate",
-    type: "Farm Estate / Plotted Land",
+    tagline: "A Managed Farmlands",
+    type: "Managed FarmLands ",
     status: "Active",
     location: "Village Nimbhori, Kalmeshwar, Nagpur",
     description:
@@ -19,10 +19,10 @@ const projects = [
     featured: true,
   },
   {
-    id: "project-2",
+    id: "altair",
     name: "Altair",
     tagline: "The Brightest Star — 32-Floor Luxury Tower",
-    type: "Residential Apartments",
+    type: "Residential ",
     status: "Active",
     location: "Temple Road, Civil Lines, Nagpur",
     description:
@@ -33,10 +33,10 @@ const projects = [
   },
 
   {
-    id: "project-4",
+    id: "navkar",
     name: "Navkar",
     tagline: "Modern Commercial Spaces",
-    type: "Commercial",
+    type: "Industrial ",
     status: "Active",
     location: " Nagpur",
     description:
@@ -45,16 +45,29 @@ const projects = [
     link: "https://altair.bhagirathrealty.com",
     featured: false,
   },
+  {
+    id: "complex",
+    name: "Bhagirath Complex",
+    tagline: "Office Space",
+    type: "Commercial ",
+    status: "Upcoming",
+    location: " Wardhaman Nagar, Nagpur",
+    description:
+      "Spacious independent villas with private gardens, premium finishes and gated community infrastructure for those who demand the finest.",
+    image: "/images/hero-bg-a.webp",
+    link: null,
+    featured: false,
+  },
   // {
-  //   id: "project-3",
-  //   name: "Bhagirath Villas",
-  //   tagline: "Exclusive Villas & Bungalows",
-  //   type: "Villas / Bungalows",
+  //   id: "oasis",
+  //   name: "Navkar Oasis",
+  //   tagline: "",
+  //   type: "Plotted development ",
   //   status: "Upcoming",
   //   location: " Nagpur",
   //   description:
   //     "Spacious independent villas with private gardens, premium finishes and gated community infrastructure for those who demand the finest.",
-  //   image: "/images/hero-bg-a.webp",
+  //   image: "/images/hero.webp",
   //   link: null,
   //   featured: false,
   // },

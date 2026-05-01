@@ -6,9 +6,11 @@ import projects from "../../data/projects";
 
 const types = [
   "All",
-  "Farm Estate / Plotted Land",
-  "Residential Apartments",
-  "Commercial",
+  "Residential ",
+  "Managed FarmLands ",
+  "Industrial ",
+  "Commercial ",
+  "Plotted development ",
 ];
 
 const ProjectCard = ({ project, index }) => {
@@ -94,8 +96,8 @@ const ProjectsSection = () => {
             </span>
           </h2>
           <p className="proj-section__sub">
-            From gated farm estates to premium residences — each development is
-            a statement of quality and vision.
+            From Managed FarmLands to premium residences — each development is a
+            statement of quality and vision.
           </p>
         </div>
 

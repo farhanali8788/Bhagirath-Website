@@ -76,12 +76,12 @@ const Footer = () => {
         >
           <Link to="/" className="footer-a__logo">
             <img
-              src="logo-icon.png"
+              src="../../../logo-icon.png"
               alt="SB Rander Group"
               className="footer-a__logo-img"
             />
             <img
-              src="img/text.png"
+              src="../../../text.png"
               alt="SB Rander Group"
               className="footer-a__logo-text"
             />
@@ -191,7 +191,8 @@ const Footer = () => {
             <li>
               <span className="footer-a__contact-label">Office</span>
               <span className="footer-a__contact-value">
-                Nagpur, Maharashtra
+                Sri Bhagirath Reality Pvt. Ltd. <br /> Sarvodaya Cloth Market,
+                Gandhibagh, Nagpur - 440002
               </span>
             </li>
           </ul>
