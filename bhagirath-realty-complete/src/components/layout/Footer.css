@@ -24,7 +24,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.4fr;
   gap: 80px;
-  padding: 80px 0 70px;
+  padding: 80px 0 30px;
 }
 
 /* ─── BRAND COL ─── */

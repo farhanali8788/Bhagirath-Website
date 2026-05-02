@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./WhatsAppFloat.css";
 
-const WHATSAPP_NUMBER = "919999999999"; // replace with real number
+const WHATSAPP_NUMBER = "919112006081"; // replace with real number
 const WHATSAPP_MESSAGE =
   "Hello, I'd like to enquire about a project at Bhagirath Realty.";
 

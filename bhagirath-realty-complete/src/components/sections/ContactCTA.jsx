@@ -51,8 +51,11 @@ const ContactCTA = () => {
           <div className="cta-section__strip">
             <div className="cta-section__strip-item">
               <span className="cta-section__strip-label">Call Us</span>
-              <a href="tel:+919999999999" className="cta-section__strip-value">
-                +91 99999 99999
+              <a href="tel:+919112006081" className="cta-section__strip-value">
+                +91 91120 06081 <br />
+              </a>
+              <a href="tel:+919112006008" className="cta-section__strip-value">
+                +91 91120 06008
               </a>
             </div>
             <div className="cta-section__strip-divider" />

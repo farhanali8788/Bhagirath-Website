@@ -175,10 +175,14 @@ const Footer = () => {
           <ul className="footer-a__contact-list">
             <li>
               <span className="footer-a__contact-label">Phone</span>
-              <a href="tel:+919999999999" className="footer-a__contact-value">
-                +91 99999 99999
+              <a href="tel:+919112006081" className="footer-a__contact-value">
+                +91 91120 06081
+              </a>
+              <a href="tel:+919112006008" className="footer-a__contact-value">
+                +91 91120 06008
               </a>
             </li>
+
             <li>
               <span className="footer-a__contact-label">Email</span>
               <a
