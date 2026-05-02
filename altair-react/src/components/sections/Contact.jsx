@@ -3,12 +3,8 @@ import "./Contact.css";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
 import { META } from "../../data/altair";
 
-// ─── Replace with your Formspree form ID ───────────────────────────
-// 1. Go to https://formspree.io → New Form → copy the ID from the endpoint
-// 2. e.g. if endpoint is https://formspree.io/f/xpwzgkla → ID is "xpwzgkla"
 const FORMSPREE_ID = "YOUR_FORM_ID";
 
-// ─── Simple math captcha generator ────────────────────────────────
 const generateCaptcha = () => {
   const a = Math.floor(Math.random() * 9) + 1;
   const b = Math.floor(Math.random() * 9) + 1;
@@ -22,16 +18,15 @@ const Contact = () => {
     email: "",
     interest: "",
     captchaInput: "",
-    honeypot: "", // hidden — bots fill this, humans don't
+    honeypot: "",
   });
 
   const [captcha, setCaptcha] = useState(generateCaptcha);
   const [captchaError, setCaptchaError] = useState(false);
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [status, setStatus] = useState("idle");
   const [headerRef, headerVisible] = useScrollAnimation();
   const [formRef, formVisible] = useScrollAnimation(0.05);
 
-  // Refresh captcha on mount (avoids SSR mismatch if you ever SSR)
   useEffect(() => {
     setCaptcha(generateCaptcha());
   }, []);
@@ -42,19 +37,26 @@ const Contact = () => {
     if (name === "captchaInput") setCaptchaError(false);
   };
 
+  const downloadBrochure = () => {
+    const a = document.createElement("a");
+    a.href = "/brochure.pdf"; // ← swap with your actual path
+    a.download = "Altair-Brochure.pdf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 1. Honeypot check — if filled, silently reject (bot)
     if (form.honeypot) {
-      setStatus("sent"); // fake success so bot doesn't retry
+      setStatus("sent");
       return;
     }
 
-    // 2. Math captcha check
     if (parseInt(form.captchaInput, 10) !== captcha.answer) {
       setCaptchaError(true);
-      setCaptcha(generateCaptcha()); // reset captcha
+      setCaptcha(generateCaptcha());
       setForm((prev) => ({ ...prev, captchaInput: "" }));
       return;
     }
@@ -74,13 +76,13 @@ const Contact = () => {
           email: form.email,
           interest: form.interest,
           _subject: `Altair Enquiry — ${form.interest.toUpperCase()} — ${form.name}`,
-          // _replyto tells Formspree which field is the reply-to address
           _replyto: form.email,
         }),
       });
 
       if (res.ok) {
         setStatus("sent");
+        downloadBrochure();
       } else {
         const data = await res.json();
         console.error("Formspree error:", data);
@@ -106,8 +108,8 @@ const Contact = () => {
           <em>Ascent</em>
         </h2>
         <p className="altair-contact__sub">
-          Schedule a private consultation or request the complete floor plan
-          portfolio. Our team will be in touch within 24 hours.
+          Fill in your details to receive the complete brochure and floor plan
+          portfolio. Our team will also be in touch within 24 hours.
         </p>
       </div>
 
@@ -132,11 +134,12 @@ const Contact = () => {
               />
             </svg>
             <h3>Thank you</h3>
-            <p>We'll be in touch within 24 hours.</p>
+            <p>
+              Your brochure is downloading. We'll be in touch within 24 hours.
+            </p>
           </div>
         ) : (
           <form className="altair-contact__form" onSubmit={handleSubmit}>
-            {/* ── Honeypot — hidden from humans, bots fill it ── */}
             <input
               type="text"
               name="honeypot"
@@ -206,7 +209,6 @@ const Contact = () => {
               </select>
             </div>
 
-            {/* ── Math Captcha ── */}
             <div className="altair-contact__field altair-contact__captcha-field">
               <label className="altair-contact__captcha-label">
                 Verification: What is {captcha.a} + {captcha.b}?
@@ -241,7 +243,7 @@ const Contact = () => {
             >
               {status === "sending"
                 ? "Sending…"
-                : "Request Private Consultation"}
+                : "Request Brochure & Consultation"}
             </button>
           </form>
         )}

@@ -45,12 +45,27 @@ const Hero = () => {
           </p>
 
           <div className="altair-hero__ctas">
-            <button
-              className="altair-hero__btn-primary"
-              onClick={() => scrollTo("contact")}
-            >
-              Book Consultation
-            </button>
+            <div className="altair-hero__btn-primary-wrap">
+              <button
+                className="altair-hero__btn-primary"
+                onClick={() => scrollTo("contact")}
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M8 3v7M5 7l3 3 3-3M3 12h10"
+                    stroke="currentColor"
+                    strokeWidth="1.25"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Download Brochure
+              </button>
+              <span className="altair-hero__btn-hint">
+                Fill a quick form to receive it
+              </span>
+            </div>
+
             <button
               className="altair-hero__btn-ghost"
               onClick={() => scrollTo("residences")}

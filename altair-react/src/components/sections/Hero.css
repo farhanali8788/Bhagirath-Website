@@ -147,20 +147,43 @@
 }
 
 .altair-hero__btn-primary {
-  background: var(--burgundy);
-  color: var(--gold-pale);
-  border: none;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
   cursor: pointer;
   padding: 0.9rem 2.25rem;
   font-family: var(--font-display);
   font-size: 0.68rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  transition: background 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 .altair-hero__btn-primary:hover {
-  background: var(--burgundy-dark);
+  background: var(--gold);
+  color: #1a0c08;
 }
+
+/* new */
+.altair-hero__btn-primary-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.altair-hero__btn-hint {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.45;
+  text-align: center;
+}
+
 .altair-hero__btn-ghost {
   background: none;
   border: none;
