@@ -78,7 +78,7 @@ export default function Hero() {
               {/* SVG Industrial Layout */}
               <img
                 src={heroPhoto}
-                alt="NAVKAAR Industrial Township"
+                alt="NAVKAR Industrial Township"
                 style={{ width: "100%", display: "block" }}
               />
             </div>
@@ -113,7 +113,7 @@ export default function Hero() {
 
       <div className="hero-scroll">
         <ChevronDown size={20} />
-        <span>Explore NAVKAAR</span>
+        <span>Explore NAVKAR</span>
       </div>
     </section>
   );

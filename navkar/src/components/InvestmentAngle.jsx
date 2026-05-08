@@ -1,36 +1,56 @@
-import { TrendingUp, ArrowRight, BarChart2 } from 'lucide-react';
-import './InvestmentAngle.css';
+import { TrendingUp, ArrowRight, BarChart2 } from "lucide-react";
+import "./InvestmentAngle.css";
 
 const reasons = [
   {
-    num: '01',
-    title: 'Nagpur — India\'s Logistics Capital',
-    body: 'Strategically placed at India\'s geographic center. Every east–west and north–south freight route passes through Nagpur. Government\'s DMIC & freight corridor plans directly benefit this region.',
+    num: "01",
+    title: "Nagpur — India's Logistics Capital",
+    body: "Strategically placed at India's geographic center. Every east–west and north–south freight route passes through Nagpur. Government's DMIC & freight corridor plans directly benefit this region.",
   },
   {
-    num: '02',
-    title: 'Rising Demand, Limited Supply',
-    body: 'Tier-2 industrial space demand has surged 40%+ in 3 years. Quality warehouse & godown supply remains critically short. Early movers capture the best yields.',
+    num: "02",
+    title: "Rising Demand, Limited Supply",
+    body: "Tier-2 industrial space demand has surged 40%+ in 3 years. Quality warehouse & godown supply remains critically short. Early movers capture the best yields.",
   },
   {
-    num: '03',
-    title: 'Rental Yield Potential',
-    body: 'Commercial industrial properties in Nagpur corridors are generating 8–12% annual rental yields — significantly higher than residential real estate.',
+    num: "03",
+    title: "Rental Yield Potential",
+    body: "Commercial industrial properties in Nagpur corridors are generating 8–12% annual rental yields — significantly higher than residential real estate.",
   },
   {
-    num: '04',
-    title: 'Capital Appreciation Upside',
-    body: 'NH-44 corridor land prices have appreciated 3x in the last decade. NAVKAAR\'s location puts your investment in the path of inevitable growth.',
+    num: "04",
+    title: "Capital Appreciation Upside",
+    body: "NH-44 corridor land prices have appreciated 3x in the last decade. NAVKAR's location puts your investment in the path of inevitable growth.",
   },
 ];
 
 const megaProjects = [
-  { icon: '🛣️', label: 'DMIC Corridor', sub: 'Delhi–Mumbai Industrial Corridor node' },
-  { icon: '🏭', label: 'Mihan SEZ', sub: 'Multi-modal International Hub & Airport' },
-  { icon: '🚄', label: 'Nagpur Metro Phase 2', sub: 'Expanding urban connectivity' },
-  { icon: '🔄', label: 'Samruddhi Expressway', sub: 'Nagpur–Mumbai 6-lane access' },
-  { icon: '📦', label: 'MMLH Nagpur', sub: 'Multi-Modal Logistics Hub' },
-  { icon: '🌆', label: 'Smart City Project', sub: 'Urban infrastructure upgradation' },
+  {
+    icon: "🛣️",
+    label: "DMIC Corridor",
+    sub: "Delhi–Mumbai Industrial Corridor node",
+  },
+  {
+    icon: "🏭",
+    label: "Mihan SEZ",
+    sub: "Multi-modal International Hub & Airport",
+  },
+  {
+    icon: "🚄",
+    label: "Nagpur Metro Phase 2",
+    sub: "Expanding urban connectivity",
+  },
+  {
+    icon: "🔄",
+    label: "Samruddhi Expressway",
+    sub: "Nagpur–Mumbai 6-lane access",
+  },
+  { icon: "📦", label: "MMLH Nagpur", sub: "Multi-Modal Logistics Hub" },
+  {
+    icon: "🌆",
+    label: "Smart City Project",
+    sub: "Urban infrastructure upgradation",
+  },
 ];
 
 export default function InvestmentAngle() {
@@ -43,8 +63,10 @@ export default function InvestmentAngle() {
             <TrendingUp size={10} /> Investment Perspective
           </span>
           <h2 className="inv-title">
-            NAGPUR IS THE<br />
-            <span className="orange">NEXT BIG</span><br />
+            NAGPUR IS THE
+            <br />
+            <span className="orange">NEXT BIG</span>
+            <br />
             LOGISTICS HUB.
           </h2>
           <div className="section-divider" />
@@ -74,9 +96,24 @@ export default function InvestmentAngle() {
               </div>
               <div className="yield-bars">
                 {[
-                  { label: 'Residential', val: 30, pct: '3–4%', color: 'var(--grey)' },
-                  { label: 'Commercial Office', val: 55, pct: '5–7%', color: 'var(--steel-light)' },
-                  { label: 'Industrial / Godown', val: 100, pct: '8–12%', color: 'var(--orange)' },
+                  {
+                    label: "Residential",
+                    val: 30,
+                    pct: "3–4%",
+                    color: "var(--grey)",
+                  },
+                  {
+                    label: "Commercial Office",
+                    val: 55,
+                    pct: "5–7%",
+                    color: "var(--steel-light)",
+                  },
+                  {
+                    label: "Industrial / Godown",
+                    val: 100,
+                    pct: "8–12%",
+                    color: "var(--orange)",
+                  },
                 ].map((b, i) => (
                   <div key={i} className="yield-bar-row">
                     <div className="yield-bar-label">{b.label}</div>
@@ -86,18 +123,23 @@ export default function InvestmentAngle() {
                         style={{ width: `${b.val}%`, background: b.color }}
                       />
                     </div>
-                    <div className="yield-bar-pct" style={{ color: b.color }}>{b.pct}</div>
+                    <div className="yield-bar-pct" style={{ color: b.color }}>
+                      {b.pct}
+                    </div>
                   </div>
                 ))}
               </div>
               <div className="yield-note">
-                *Indicative figures based on Nagpur industrial corridor market data
+                *Indicative figures based on Nagpur industrial corridor market
+                data
               </div>
             </div>
 
             {/* Mega projects */}
             <div className="mega-section">
-              <div className="mega-title">NAGPUR MEGA PROJECTS FUELING GROWTH</div>
+              <div className="mega-title">
+                NAGPUR MEGA PROJECTS FUELING GROWTH
+              </div>
               <div className="mega-grid">
                 {megaProjects.map((m, i) => (
                   <div key={i} className="mega-card">
@@ -121,10 +163,10 @@ export default function InvestmentAngle() {
         {/* Bottom stat strip */}
         <div className="inv-strip">
           {[
-            { val: '₹50K Cr+', label: 'DMIC Investment in Region' },
-            { val: '40%', label: 'Warehouse Demand Growth (3 Yr)' },
-            { val: '8–12%', label: 'Industrial Rental Yield' },
-            { val: '3×', label: 'NH-44 Corridor Appreciation (10 Yr)' },
+            { val: "₹50K Cr+", label: "DMIC Investment in Region" },
+            { val: "40%", label: "Warehouse Demand Growth (3 Yr)" },
+            { val: "8–12%", label: "Industrial Rental Yield" },
+            { val: "3×", label: "NH-44 Corridor Appreciation (10 Yr)" },
           ].map((s, i) => (
             <div key={i} className="inv-strip-item">
               <div className="inv-strip-val">{s.val}</div>

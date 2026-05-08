@@ -25,10 +25,10 @@ export default function Navbar() {
       <div className="navbar-inner container">
         <div className="navbar-brand">
           <div className="brand-badge">
-            <img src="logo-icon.png" alt="Navkaar Logo" />
+            <img src="logo-icon.png" alt="Navkar Logo" />
           </div>
           <div className="brand-text">
-            <span className="brand-name">NAVKAAR</span>
+            <span className="brand-name">NAVKAR</span>
             {/* <span className="brand-sub">by SB Rander Group</span> */}
           </div>
         </div>
@@ -42,9 +42,9 @@ export default function Navbar() {
         </ul>
 
         <div className="navbar-actions">
-          <a href="tel:+919876543210" className="nav-phone">
+          <a href="tel:+919112006081" className="nav-phone">
             <Phone size={14} />
-            <span>+91 98765 43210</span>
+            <span>+91 91120 06081</span>
           </a>
           <a href="#contact" className="nav-cta">
             Book Site Visit <ChevronRight size={14} />

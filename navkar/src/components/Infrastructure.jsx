@@ -67,7 +67,7 @@ export default function Infrastructure() {
           </div>
           <div className="infra-header-right">
             <p className="infra-sub">
-              NAVKAAR is engineered for operational efficiency from day one.
+              NAVKAR is engineered for operational efficiency from day one.
               Every infrastructure element is designed with commercial logistics in mind —
               not retrofitted afterthoughts.
             </p>
@@ -94,7 +94,7 @@ export default function Infrastructure() {
 
         {/* Visual infrastructure diagram */}
         <div className="infra-diagram">
-          <div className="diagram-label">NAVKAAR INFRASTRUCTURE CROSS-SECTION</div>
+          <div className="diagram-label">NAVKAR INFRASTRUCTURE CROSS-SECTION</div>
           <svg viewBox="0 0 900 180" xmlns="http://www.w3.org/2000/svg">
             <rect width="900" height="180" fill="#0A1628"/>
             {/* Road */}
