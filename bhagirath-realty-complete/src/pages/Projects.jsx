@@ -23,7 +23,7 @@ const ProjectCard = ({ project, index }) => {
       ref={ref}
       className={`pj-card anim-fade-up anim-delay-${(index % 3) + 1} ${visible ? "is-visible" : ""}`}
     >
-      <div className="pj-card__img">
+      <div className="pj-card__img" id="projects">
         <img src={project.image} alt={project.name} />
         <div className="pj-card__img-overlay" />
         <span
@@ -144,7 +144,10 @@ const ProjectCard = ({ project, index }) => {
               Visit Site ↗
             </a>
           ) : (
-            <Link to="/contact" className="pj-card__cta pj-card__cta--outline">
+            <Link
+              to="/contact#form"
+              className="pj-card__cta pj-card__cta--outline"
+            >
               Enquire Now
             </Link>
           )}
@@ -238,7 +241,7 @@ const Projects = () => {
             <br />
             <span className="pj-cta__heading--gold">Let's Talk.</span>
           </h2>
-          <Link to="/contact" className="pj-cta__btn">
+          <Link to="/contact#form" className="pj-cta__btn">
             Book a Consultation
           </Link>
         </div>

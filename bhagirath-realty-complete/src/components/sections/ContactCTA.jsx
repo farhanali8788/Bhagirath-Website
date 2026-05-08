@@ -39,10 +39,13 @@ const ContactCTA = () => {
           </p>
 
           <div className="cta-section__actions">
-            <Link to="/contact" className="cta-section__btn-primary">
+            <Link to="/contact#form" className="cta-section__btn-primary">
               Book a Consultation
             </Link>
-            <Link to="/projects" className="cta-section__btn-secondary">
+            <Link
+              to="/projects#projects"
+              className="cta-section__btn-secondary"
+            >
               Explore Projects
             </Link>
           </div>

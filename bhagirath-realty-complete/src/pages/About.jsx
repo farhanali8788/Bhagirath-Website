@@ -298,7 +298,7 @@ const About = () => {
                 enduring value.
               </p>
               <Link
-                to="/projects"
+                to="/projects#projects"
                 className="ab-btn-primary ab-projects-snap__cta"
               >
                 View All Projects
@@ -412,10 +412,10 @@ const About = () => {
               <span className="ab-heading--gold">Real Estate Journey?</span>
             </h2>
             <div className="ab-cta__btns">
-              <Link to="/contact" className="ab-btn-primary">
+              <Link to="/contact#form" className="ab-btn-primary">
                 Book a Consultation
               </Link>
-              <Link to="/projects" className="ab-btn-secondary">
+              <Link to="/projects#projects" className="ab-btn-secondary">
                 View Our Projects
               </Link>
             </div>

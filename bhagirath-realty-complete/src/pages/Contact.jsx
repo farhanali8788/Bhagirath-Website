@@ -128,7 +128,7 @@ const Contact = () => {
       </section>
 
       {/* ══ MAIN CONTENT ══ */}
-      <section className="ct-main">
+      <section className="ct-main" id="form">
         <div className="container ct-main__grid">
           {/* ── LEFT: Info ── */}
           <div

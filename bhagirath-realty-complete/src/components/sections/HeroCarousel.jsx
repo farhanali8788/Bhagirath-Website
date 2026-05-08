@@ -25,7 +25,11 @@ const slideContent = {
       heading: "Building Trust.",
       headingGold: "Delivering Quality.",
       sub: "Welcome to Sri Bhagirath Realty Private Limited, a real estate developer committed to delivering reliable and high-quality developments in Nagpur.",
-      cta: { label: "Explore Projects", href: "/projects", external: false },
+      cta: {
+        label: "Explore Projects",
+        href: "/projects#projects",
+        external: false,
+      },
     },
   },
   altair: {
@@ -45,7 +49,11 @@ const slideContent = {
       heading: "Thoughtfully Designed.",
       headingGold: "Comfortably Built.",
       sub: "At Sri Bhagirath Realty Private Limited, we focus on creating residential spaces that offer comfort, functionality, and long-term value.",
-      cta: { label: "Explore Projects", href: "/projects", external: false },
+      cta: {
+        label: "Explore Projects",
+        href: "/projects#projects",
+        external: false,
+      },
     },
   },
   navkar: {
@@ -65,7 +73,11 @@ const slideContent = {
       heading: "Infrastructure Built",
       headingGold: "for Productivity.",
       sub: "Sri Bhagirath Realty also focuses on developing industrial spaces that support operational efficiency and long-term business needs.",
-      cta: { label: "View All Projects", href: "/projects", external: false },
+      cta: {
+        label: "View All Projects",
+        href: "/projects#projects",
+        external: false,
+      },
     },
   },
   // complex: {
@@ -123,8 +135,12 @@ const HeroCarousel = ({ variant = "projects" }) => {
 
   const secondaryCta =
     variant === "home"
-      ? { label: "Book Consultation →", href: "/contact", external: false }
-      : { label: "All Projects ↓", href: "/projects#grid", external: false };
+      ? { label: "Book Consultation →", href: "/contact#form", external: false }
+      : {
+          label: "All Projects ↓",
+          href: "/projects#projects",
+          external: false,
+        };
 
   return (
     <section className="pj-carousel">
