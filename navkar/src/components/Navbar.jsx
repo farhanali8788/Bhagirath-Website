@@ -25,12 +25,12 @@ export default function Navbar() {
       <div className="navbar-inner container">
         <div className="navbar-brand">
           <div className="brand-badge">
-            <img src="logo-icon.png" alt="Navkar Logo" />
+            <img src="/Navkar_logo.png" alt="Navkar Logo" />
           </div>
-          <div className="brand-text">
+          {/* <div className="brand-text">
             <span className="brand-name">NAVKAR</span>
-            {/* <span className="brand-sub">by SB Rander Group</span> */}
-          </div>
+            <span className="brand-sub">by SB Rander Group</span> 
+          </div> */}
         </div>
 
         <ul className="nav-links">

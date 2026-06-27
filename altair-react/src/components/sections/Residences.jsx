@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Residences.css";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
 import { RESIDENCES } from "../../data/altair";
+import ImageLightbox from "../common/ImageLightbox";
 
 const Residences = () => {
   const [active, setActive] = useState(0);
@@ -56,11 +57,16 @@ const Residences = () => {
 
           <div className="altair-residences__visual">
             <div className="altair-residences__visual-inner">
-              <img
+              <ImageLightbox
                 src={`/images/residence-${res.id}.webp`}
-                alt={res.label}
-                className="altair-residences__img"
-              />
+                alt={`${res.label} Floor Plan`}
+              >
+                <img
+                  src={`/images/residence-${res.id}.webp`}
+                  alt={res.label}
+                  className="altair-residences__img"
+                />
+              </ImageLightbox>
               <div className="altair-residences__visual-fallback">
                 <span className="altair-residences__visual-label-big">
                   {res.label}

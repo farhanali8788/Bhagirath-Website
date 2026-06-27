@@ -1,0 +1,260 @@
+/* ── Trigger wrapper ──────────────────────────────────────── */
+.lb-trigger {
+  position: relative;
+  display: block;
+  cursor: zoom-in;
+}
+
+.lb-trigger__hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 14, 12, 0.78);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.lb-trigger:hover .lb-trigger__hint,
+.lb-trigger:focus-visible .lb-trigger__hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lb-trigger:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ── Overlay ──────────────────────────────────────────────── */
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 7, 5, 0.94);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: lbFadeIn 0.28s ease forwards;
+}
+
+@keyframes lbFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Controls bar ─────────────────────────────────────────── */
+.lb-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px;
+  background: linear-gradient(to bottom, rgba(8, 7, 5, 0.85), transparent);
+  z-index: 10;
+}
+
+.lb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 8px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s;
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.lb-btn:hover:not(:disabled) {
+  background: rgba(184, 131, 74, 0.18);
+  border-color: var(--gold);
+  color: var(--gold-pale);
+}
+
+.lb-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.lb-btn--close {
+  margin-left: 8px;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-secondary);
+}
+
+.lb-btn--close:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--text-primary) !important;
+}
+
+.lb-btn--reset {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lb-zoom-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* ── Image stage ──────────────────────────────────────────────
+   NO overflow:hidden here — it would suppress wheel events
+   at the browser compositor level, breaking scroll-to-zoom.   */
+.lb-stage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 24px 56px;
+  /* overflow intentionally omitted — image uses transform scale */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lb-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  animation: lbImgIn 0.32s ease forwards;
+  will-change: transform;
+  touch-action: none;
+  pointer-events: none; /* prevents img drag from interfering with stage drag */
+}
+
+@keyframes lbImgIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Caption ──────────────────────────────────────────────── */
+.lb-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 20px 24px;
+  background: linear-gradient(to top, rgba(8, 7, 5, 0.75), transparent);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* ── Amenity card context ─────────────────────────────────────
+   The card is position:relative + overflow:hidden. The lb-trigger
+   must fill it absolutely so other card layers (overlay, content)
+   remain visible on top, while the trigger itself captures clicks. */
+.altair-amenity-card .lb-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 5; /* above overlay and content layers */
+  cursor: zoom-in;
+  background: transparent;
+}
+
+/* Keep the image filling the card */
+.altair-amenity-card .lb-trigger .altair-amenity-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hint shows on card hover */
+.altair-amenity-card:hover .lb-trigger__hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Residences floor plan context ───────────────────────────── */
+.altair-residences__visual-inner .lb-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  cursor: zoom-in;
+  background: transparent;
+}
+
+.altair-residences__visual-inner .lb-trigger .altair-residences__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .lb-controls {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .lb-btn {
+    min-width: 34px;
+    min-height: 34px;
+    padding: 6px 8px;
+  }
+  .lb-zoom-label {
+    display: none;
+  }
+  .lb-stage {
+    padding: 60px 8px 48px;
+  }
+}

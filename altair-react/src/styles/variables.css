@@ -1,27 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Tenor+Sans&family=DM+Sans:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 
 :root {
-  --bg-primary: #2c1a0e;
-  --bg-secondary: #1a0f0a;
-  --bg-elevated: #3a2010;
-  --bg-cream: #f7f2ea;
-  --bg-card: rgba(255, 255, 255, 0.04);
-  --text-primary: #fdfaf5;
-  --text-secondary: #f0e4c8;
-  --text-muted: rgba(240, 228, 200, 0.5);
-  --text-dark: #1a0f0a;
-  --text-mid: #5c4033;
-  --gold: #c9a96e;
-  --gold-light: #e2c99a;
-  --gold-pale: #f0e4c8;
-  --gold-dim: rgba(201, 169, 110, 0.12);
-  --burgundy: #6b1e1e;
-  --burgundy-dark: #4a1212;
-  --border-subtle: rgba(201, 169, 110, 0.15);
-  --border-gold: rgba(201, 169, 110, 0.35);
-  --font-heading: "Cormorant Garamond", Georgia, serif;
-  --font-display: "Tenor Sans", sans-serif;
-  --font-body: "DM Sans", sans-serif;
+  /* ── Backgrounds — deep charcoal for luxury gravitas ─────── */
+  --bg-primary: #0f0e0c;
+  --bg-secondary: #161410;
+  --bg-elevated: #1c1915;
+  --bg-cream: #f5efe4;
+  --bg-card: rgba(255, 255, 255, 0.03);
+
+  /* ── Text ──────────────────────────────────────────────────── */
+  --text-primary: #f7f2ea;
+  --text-secondary: #ddd0b8;
+  --text-muted: rgba(221, 208, 184, 0.48);
+  --text-dark: #0f0e0c;
+  --text-mid: #6b5c44;
+
+  /* ── Brand gold — extracted from Altair logo ───────────────
+     Logo primary:  #945840  (warm copper)
+     Logo mid:      #71573c  (deep bronze)
+     Logo cream:    #ebe4ce  (warm ivory)
+     Refined into a luxury palette:                             */
+  --gold: #b8834a;          /* refined copper-gold */
+  --gold-light: #d4a96e;    /* warm highlight */
+  --gold-pale: #ebe4ce;     /* ivory — from logo cream */
+  --gold-dim: rgba(184, 131, 74, 0.1);
+  --copper: #945840;        /* direct logo extract */
+  --bronze: #71573c;        /* deep logo tone */
+
+  /* ── Legacy aliases so existing components compile ─────────── */
+  --burgundy: #3a2e24;
+  --burgundy-dark: #1e1812;
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --border-subtle: rgba(184, 131, 74, 0.12);
+  --border-gold: rgba(184, 131, 74, 0.32);
+
+  /* ── Typography ─────────────────────────────────────────────
+     Playfair Display — timeless, elegant, editorial serif
+     Jost             — modern, geometric, refined sans
+     Cormorant Garamond — for delicate display moments          */
+  --font-heading: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Jost", sans-serif;
+
+  /* ── Layout ────────────────────────────────────────────────── */
   --section-padding: 120px 0;
   --container-width: 1280px;
   --container-pad: 60px;
@@ -45,6 +67,7 @@ body {
   margin: 0 auto;
 }
 
+/* ── Scroll animations ──────────────────────────────────────────── */
 .anim-fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out); }
 .anim-fade-up.is-visible { opacity: 1; transform: translateY(0); }
 .anim-fade-left { opacity: 0; transform: translateX(-48px); transition: opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out); }

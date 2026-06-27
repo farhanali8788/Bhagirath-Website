@@ -1,119 +1,87 @@
-import { ArrowRight, MapPin, ChevronDown, Phone } from "lucide-react";
+import { ArrowRight, MapPin, Phone } from "lucide-react";
 import "./Hero.css";
 import heroPhoto from "/navkar-hero-bg.png";
 
 export default function Hero() {
   return (
     <section className="hero" id="home">
-      {/* Background grid */}
-      <div className="hero-grid" aria-hidden="true" />
-      <div className="hero-gradient" aria-hidden="true" />
+      {/* Full-width background image */}
+      <div
+        className="hero-bg"
+        style={{ backgroundImage: `url(${heroPhoto})` }}
+        aria-hidden="true"
+      />
 
-      {/* Industrial texture overlay */}
-      <div className="hero-texture" aria-hidden="true" />
+      {/* Dark overlay for readability */}
+      <div className="hero-overlay" aria-hidden="true" />
 
-      {/* Animated scan line */}
-      <div className="hero-scan" aria-hidden="true" />
-
-      {/* Bottom edge geometry */}
-      <div className="hero-edge" aria-hidden="true" />
+      {/* Bottom fade into page body */}
+      <div className="hero-fade-bottom" aria-hidden="true" />
 
       <div className="container hero-content">
-        <div className="hero-left">
-          <div className="hero-badges">
-            <span className="badge-rera">RERA Approved</span>
-            <span className="badge-nagpur">
-              <MapPin size={12} /> Nagpur, Maharashtra
+        <div className="hero-inner">
+          {/* Eyebrow */}
+          <div className="hero-eyebrow">
+            <span className="eyebrow-badge">RERA Approved</span>
+            <span className="eyebrow-location">
+              <MapPin size={12} />
+              Nagpur, Maharashtra
             </span>
           </div>
 
-          <div className="hero-kicker">Commercial Industrial Development</div>
+          {/* Project name */}
+          <div className="hero-project-name">NAVKAR</div>
 
+          {/* Headline */}
           <h1 className="hero-headline">
-            Scale Your
+            Industrial &amp; Logistics Park
             <br />
-            <span className="headline-accent">Business</span>
-            <br />
-            <span className="headline-outline">Operations.</span>
+            <span className="headline-sub">Built for Scale. Built to Last.</span>
           </h1>
 
-          <p className="hero-sub">
-            Premium godowns, warehouses & industrial spaces engineered for
-            efficiency. Nagpur's most strategically located commercial township.
+          {/* Description */}
+          <p className="hero-description">
+            Premium godowns, warehouses &amp; industrial plots at Nagpur's most
+            strategic location — direct NH-44 access, MIDC approved, ready for
+            immediate possession.
           </p>
 
-          <div className="hero-stats">
-            <div className="hero-stat">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Industrial Plots</span>
-            </div>
-            <div className="stat-divider" />
-            <div className="hero-stat">
-              <span className="stat-number">500+</span>
-              <span className="stat-label">Sq.Yd. Plots</span>
-            </div>
-            <div className="stat-divider" />
-            <div className="hero-stat">
-              <span className="stat-number">NH-44</span>
-              <span className="stat-label">Direct Access</span>
-            </div>
-          </div>
-
+          {/* CTAs */}
           <div className="hero-ctas">
             <a href="#contact" className="cta-primary">
-              Book Site Visit
+              Book a Site Visit
               <ArrowRight size={16} />
             </a>
-            <a href="tel:+919876543210" className="cta-secondary">
+            <a href="tel:+919112006081" className="cta-secondary">
               <Phone size={14} />
-              Call Now
+              +91 91120 06081
             </a>
           </div>
-        </div>
 
-        <div className="hero-right">
-          {/* Industrial visual card */}
-          <div className="hero-visual">
-            <div className="visual-inner">
-              {/* SVG Industrial Layout */}
-              <img
-                src={heroPhoto}
-                alt="NAVKAR Industrial Township"
-                style={{ width: "100%", display: "block" }}
-              />
+          {/* Minimal trust strip */}
+          <div className="hero-trust">
+            <div className="trust-item">
+              <span className="trust-value">50+</span>
+              <span className="trust-label">Industrial Plots</span>
             </div>
-
-            {/* Floating info cards */}
-            <div className="float-card float-1">
-              <div className="float-icon">📍</div>
-              <div>
-                <div className="float-title">NH-44 Frontage</div>
-                <div className="float-sub">National Highway Direct</div>
-              </div>
+            <div className="trust-divider" />
+            <div className="trust-item">
+              <span className="trust-value">NH-44</span>
+              <span className="trust-label">Direct Frontage</span>
             </div>
-
-            <div className="float-card float-2">
-              <div className="float-dot" />
-              <div>
-                <div className="float-title">MIDC Approved</div>
-                <div className="float-sub">Industrial Zone</div>
-              </div>
-            </div>
-
-            <div className="float-card float-3">
-              <div className="float-icon">🏭</div>
-              <div>
-                <div className="float-title">50,000+ Sq.Ft.</div>
-                <div className="float-sub">Total Development</div>
-              </div>
+            <div className="trust-divider" />
+            <div className="trust-item">
+              <span className="trust-value">500+</span>
+              <span className="trust-label">Sq.Yd. Plots</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="hero-scroll">
-        <ChevronDown size={20} />
-        <span>Explore NAVKAR</span>
+      {/* Scroll cue */}
+      <div className="hero-scroll-cue" aria-hidden="true">
+        <div className="scroll-line" />
+        <span>Scroll</span>
       </div>
     </section>
   );

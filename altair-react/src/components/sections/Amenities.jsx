@@ -1,6 +1,7 @@
 import React from "react";
 import "./Amenities.css";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
+import ImageLightbox from "../common/ImageLightbox";
 
 /* ── Amenity data with Unsplash images ───────────────────────── */
 const AMENITIES = [
@@ -254,37 +255,47 @@ const Amenities = () => {
         className={`altair-amenities__bento anim-fade-up anim-delay-2 ${gridVisible ? "is-visible" : ""}`}
       >
         {AMENITIES.map((a) => (
-          <div key={a.id} className="altair-amenity-card">
-            {/* Background image */}
-            <img
-              className="altair-amenity-card__img"
-              src={a.img}
-              alt={a.name}
-              loading="lazy"
-              draggable="false"
-            />
+          <ImageLightbox
+            key={a.id}
+            src={`/${a.img}`}
+            alt={`${a.name} — ${a.floor}`}
+          >
+            <div className="altair-amenity-card">
+              <img
+                className="altair-amenity-card__img"
+                src={a.img}
+                alt={a.name}
+                loading="lazy"
+                draggable="false"
+              />
 
-            {/* Dark gradient overlay */}
-            <div className="altair-amenity-card__overlay" />
+              {/* Dark gradient overlay */}
+              <div className="altair-amenity-card__overlay" />
 
-            {/* Gold border on hover */}
-            <div className="altair-amenity-card__border" />
+              {/* Gold border on hover */}
+              <div className="altair-amenity-card__border" />
 
-            {/* Gold line bottom */}
-            <div className="altair-amenity-card__gold-line" />
+              {/* Gold line bottom */}
+              <div className="altair-amenity-card__gold-line" />
 
-            {/* Icon badge top-right */}
-            <div className="altair-amenity-card__icon-badge" aria-hidden="true">
-              {ICONS[a.icon]}
+              {/* Icon badge top-right */}
+              <div
+                className="altair-amenity-card__icon-badge"
+                aria-hidden="true"
+              >
+                {ICONS[a.icon]}
+              </div>
+
+              {/* Text content */}
+              <div className="altair-amenity-card__content">
+                <span className="altair-amenity-card__floor-tag">
+                  {a.floor}
+                </span>
+                <p className="altair-amenity-card__name">{a.name}</p>
+                <p className="altair-amenity-card__desc">{a.desc}</p>
+              </div>
             </div>
-
-            {/* Text content */}
-            <div className="altair-amenity-card__content">
-              <span className="altair-amenity-card__floor-tag">{a.floor}</span>
-              <p className="altair-amenity-card__name">{a.name}</p>
-              <p className="altair-amenity-card__desc">{a.desc}</p>
-            </div>
-          </div>
+          </ImageLightbox>
         ))}
       </div>
 

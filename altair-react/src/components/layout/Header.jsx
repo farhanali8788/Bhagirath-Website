@@ -37,11 +37,12 @@ const Header = () => {
         className={`altair-header ${scrolled ? "altair-header--scrolled" : ""} ${menuOpen ? "altair-header--menu-open" : ""}`}
       >
         <div className="container altair-header__inner">
-          <button
+          {/* <button
             className="altair-logo"
             onClick={() => scrollTo("hero")}
             aria-label="Altair Home"
           >
+            <img src="/Logo_Altair.png" alt="Altair Logo" />
             <svg width="30" height="30" viewBox="0 0 60 60" fill="none">
               <path
                 d="M30 5L36 22H54L40 32L46 49L30 39L14 49L20 32L6 22H24L30 5Z"
@@ -57,7 +58,16 @@ const Header = () => {
               />
             </svg>
             <span className="altair-logo__text">ALTAIR</span>
-          </button>
+          </button> */}
+          <div className="navbar-brand">
+            <div className="brand-badge">
+              <img src="/Logo_Altair_1.png" alt="Altair Logo" />
+            </div>
+            {/* <div className="brand-text">
+            <span className="brand-name">NAVKAR</span>
+            <span className="brand-sub">by SB Rander Group</span> 
+          </div> */}
+          </div>
 
           <nav className="altair-nav">
             {NAV_LINKS.map((l) => (

@@ -30,7 +30,27 @@
 }
 
 /* Logo */
-.altair-logo {
+.brand-badge {
+  height: 85px;
+  width: auto;
+  /* background: var(--orange); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--white); */
+  /* letter-spacing: 0.05em;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 85% 100%, 0 100%); */
+}
+
+.brand-badge img {
+  height: 100%;
+  width: auto;
+}
+
+/* .altair-logo {
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -45,7 +65,7 @@
   font-size: 1.15rem;
   letter-spacing: 0.28em;
   color: var(--gold);
-}
+} */
 
 /* Desktop nav */
 .altair-nav {
