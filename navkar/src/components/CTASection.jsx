@@ -47,7 +47,7 @@ export default function CTASection() {
     return e;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) {
@@ -55,12 +55,37 @@ export default function CTASection() {
       return;
     }
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch("https://formspree.io/f/xykqpjlo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          interest: form.interest,
+          budget: form.budget,
+          message: form.message || "Navkar enquiry",
+          _subject: `Navkar Enquiry — ${form.interest || "New Lead"} — ${
+            form.name || ""
+          }`,
+          _replyto: form.email,
+        }),
+      });
       setLoading(false);
-      setSubmitted(true);
-    }, 1800);
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setErrors({ submit: "Something went wrong. Please try again." });
+      }
+    } catch {
+      setLoading(false);
+      setErrors({ submit: "Something went wrong. Please try again." });
+    }
   };
-
   const handleChange = (field, val) => {
     setForm((prev) => ({ ...prev, [field]: val }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
@@ -177,6 +202,9 @@ export default function CTASection() {
                 </div>
               ) : (
                 <form className="lead-form" onSubmit={handleSubmit}>
+                  {errors.submit && (
+                    <span className="field-error">{errors.submit}</span>
+                  )}
                   <div className="form-row">
                     <div className={`form-field ${errors.name ? "error" : ""}`}>
                       <label>Full Name *</label>

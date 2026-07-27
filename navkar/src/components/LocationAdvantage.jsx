@@ -1,4 +1,13 @@
-import { Navigation, Clock, Truck, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import {
+  Navigation,
+  Clock,
+  Truck,
+  ArrowRight,
+  CheckCircle2,
+  Loader2,
+  X,
+} from "lucide-react";
 import "./LocationAdvantage.css";
 
 const connections = [
@@ -67,7 +76,63 @@ const advantages = [
   },
 ];
 
+// ── Phase-I plot availability page (lead-gated) ──
+const PHASE1_URL =
+  "https://sribhagirathrealty.blindersoe.com/projects/plot-availability/2";
+const PHASE2_URL =
+  "https://sribhagirathrealty.blindersoe.com/projects/plot-availability/1";
+// Same Formspree form used across the sites
+const FORMSPREE_URL = "https://formspree.io/f/xykqpjlo";
+// TODO: paste the Google Maps EMBED url (Share → Embed a map → copy the src)
+const MAP_EMBED_SRC =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.0489470727407!2d79.2318198!3d21.141031299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c982cb445a25%3A0xed5dfbbd008de39a!2sNavkar%20Industrial%20and%20Logistics%20Park!5e1!3m2!1sen!2sin!4v1782893728017!5m2!1sen!2sin";
+
+const phases = [
+  { name: "Navkar I", status: "Completed", tone: "done" },
+  { name: "Navkar II", status: "Ongoing", tone: "live" },
+  { name: "Navkar III", status: "Upcoming", tone: "soon" },
+];
+
 export default function LocationAdvantage() {
+  const [leadPhase, setLeadPhase] = useState(null); // 'I' | 'II' | null
+  const [form, setForm] = useState({ name: "", phone: "" });
+  const [sending, setSending] = useState(false);
+  const [err, setErr] = useState("");
+
+  const submitLead = async (e) => {
+    e.preventDefault();
+    if (!form.name.trim() || !/^[0-9+\-\s]{8,}$/.test(form.phone.trim())) {
+      setErr("Please enter your name and a valid phone number.");
+      return;
+    }
+    setErr("");
+    setSending(true);
+    const phaseLabel = leadPhase === "II" ? "Phase-II" : "Phase-I";
+    const target = leadPhase === "II" ? PHASE2_URL : PHASE1_URL;
+    try {
+      await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          interest: `Navkar ${phaseLabel} plot availability`,
+          _subject: `Navkar ${phaseLabel} Enquiry — ${form.name || "New Lead"}`,
+        }),
+      });
+    } catch (_) {
+      // even if the lead POST fails, we still let the visitor through
+    }
+    // redirect to the correct phase availability page in a new tab
+    window.open(target, "_blank", "noopener");
+    setSending(false);
+    setLeadPhase(null);
+    setForm({ name: "", phone: "" });
+  };
+
   return (
     <section className="location" id="location">
       <div className="location-bg" aria-hidden="true" />
@@ -107,314 +172,47 @@ export default function LocationAdvantage() {
             {/* SVG Map */}
             <div className="map-container">
               <div className="map-label">NAVKAR LOCATION MAP</div>
-              <svg
-                viewBox="0 0 400 400"
-                xmlns="http://www.w3.org/2000/svg"
-                className="map-svg"
-              >
-                {/* Background */}
-                <rect width="400" height="400" fill="#0A1628" />
+              <div className="map-embed">
+                <iframe
+                  title="Navkar Industrial & Logistics Park location"
+                  src={MAP_EMBED_SRC}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
 
-                {/* Grid */}
-                <defs>
-                  <pattern
-                    id="mapgrid"
-                    width="30"
-                    height="30"
-                    patternUnits="userSpaceOnUse"
+              <div className="phase-availability">
+                <div className="phase-av-title">PHASE AVAILABILITY</div>
+                <div className="phase-list">
+                  {phases.map((p) => (
+                    <div key={p.name} className={`phase-row phase-${p.tone}`}>
+                      <span className="phase-name">{p.name}</span>
+                      <span className="phase-status">
+                        <span className="phase-dot" />
+                        {p.status}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="phase-cta-group">
+                  <button
+                    className="phase-cta"
+                    onClick={() => setLeadPhase("I")}
                   >
-                    <path
-                      d="M 30 0 L 0 0 0 30"
-                      fill="none"
-                      stroke="rgba(255,255,255,0.04)"
-                      strokeWidth="0.8"
-                    />
-                  </pattern>
-                </defs>
-                <rect width="400" height="400" fill="url(#mapgrid)" />
-
-                {/* Highway NH-44 (diagonal) */}
-                <path
-                  d="M 0 280 Q 200 200 400 120"
-                  stroke="#F97316"
-                  strokeWidth="5"
-                  fill="none"
-                  opacity="0.9"
-                />
-                <path
-                  d="M 0 290 Q 200 210 400 130"
-                  stroke="rgba(249,115,22,0.2)"
-                  strokeWidth="12"
-                  fill="none"
-                />
-                <text
-                  x="30"
-                  y="305"
-                  fill="rgba(249,115,22,0.8)"
-                  fontSize="10"
-                  fontFamily="Barlow Condensed"
-                  fontWeight="700"
-                  letterSpacing="1"
-                >
-                  NH-44
-                </text>
-
-                {/* Samruddhi Expressway */}
-                <path
-                  d="M 400 160 Q 280 180 200 200 Q 100 220 0 180"
-                  stroke="#FBBF24"
-                  strokeWidth="3"
-                  fill="none"
-                  strokeDasharray="6,4"
-                />
-                <text
-                  x="280"
-                  y="172"
-                  fill="rgba(251,191,36,0.7)"
-                  fontSize="8"
-                  fontFamily="Barlow Condensed"
-                  letterSpacing="1"
-                >
-                  SAMRUDDHI EXPWY
-                </text>
-
-                {/* Ring Road */}
-                <ellipse
-                  cx="200"
-                  cy="230"
-                  rx="100"
-                  ry="70"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.15)"
-                  strokeWidth="2"
-                  strokeDasharray="4,3"
-                />
-
-                {/* City block indicators */}
-                <rect
-                  x="140"
-                  y="185"
-                  width="60"
-                  height="45"
-                  fill="rgba(100,116,139,0.15)"
-                  stroke="rgba(100,116,139,0.3)"
-                  strokeWidth="1"
-                  rx="1"
-                />
-                <text
-                  x="170"
-                  y="213"
-                  textAnchor="middle"
-                  fill="rgba(148,163,184,0.6)"
-                  fontSize="8"
-                  fontFamily="Barlow Condensed"
-                >
-                  NAGPUR CITY
-                </text>
-
-                {/* MIDC */}
-                <rect
-                  x="290"
-                  y="240"
-                  width="50"
-                  height="40"
-                  fill="rgba(249,115,22,0.08)"
-                  stroke="rgba(249,115,22,0.3)"
-                  strokeWidth="1"
-                  rx="1"
-                />
-                <text
-                  x="315"
-                  y="265"
-                  textAnchor="middle"
-                  fill="rgba(249,115,22,0.7)"
-                  fontSize="7"
-                  fontFamily="Barlow Condensed"
-                  letterSpacing="1"
-                >
-                  MIDC
-                </text>
-
-                {/* Airport */}
-                <g transform="translate(80, 120)">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="15"
-                    fill="rgba(251,191,36,0.08)"
-                    stroke="rgba(251,191,36,0.4)"
-                    strokeWidth="1"
-                  />
-                  <text
-                    x="0"
-                    y="4"
-                    textAnchor="middle"
-                    fill="rgba(251,191,36,0.8)"
-                    fontSize="12"
+                    View Phase-I Availability <ArrowRight size={15} />
+                  </button>
+                  <button
+                    className="phase-cta phase-cta-alt"
+                    onClick={() => setLeadPhase("II")}
                   >
-                    ✈
-                  </text>
-                  <text
-                    x="0"
-                    y="24"
-                    textAnchor="middle"
-                    fill="rgba(251,191,36,0.6)"
-                    fontSize="7"
-                    fontFamily="Barlow Condensed"
-                    letterSpacing="1"
-                  >
-                    AIRPORT
-                  </text>
-                </g>
-
-                {/* Railway */}
-                <path
-                  d="M 50 300 L 350 300"
-                  stroke="rgba(148,163,184,0.4)"
-                  strokeWidth="3"
-                  strokeDasharray="8,4"
-                />
-                <path
-                  d="M 50 300 L 350 300"
-                  stroke="rgba(148,163,184,0.2)"
-                  strokeWidth="8"
-                  fill="none"
-                />
-                <text
-                  x="200"
-                  y="320"
-                  textAnchor="middle"
-                  fill="rgba(148,163,184,0.5)"
-                  fontSize="8"
-                  fontFamily="Barlow Condensed"
-                  letterSpacing="2"
-                >
-                  RAILWAY LINE
-                </text>
-
-                {/* NAVKAR marker */}
-                <g transform="translate(220, 215)">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="18"
-                    fill="rgba(249,115,22,0.2)"
-                    stroke="var(--orange)"
-                    strokeWidth="2"
-                  >
-                    <animate
-                      attributeName="r"
-                      values="18;26;18"
-                      dur="2s"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="opacity"
-                      values="1;0.3;1"
-                      dur="2s"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                  <circle cx="0" cy="0" r="10" fill="#F97316" />
-                  <text
-                    x="0"
-                    y="4"
-                    textAnchor="middle"
-                    fill="white"
-                    fontSize="10"
-                    fontWeight="bold"
-                    fontFamily="Barlow Condensed"
-                  >
-                    NK
-                  </text>
-                  <text
-                    x="0"
-                    y="34"
-                    textAnchor="middle"
-                    fill="white"
-                    fontSize="9"
-                    fontFamily="Barlow Condensed"
-                    fontWeight="700"
-                    letterSpacing="2"
-                  >
-                    NAVKAR
-                  </text>
-                </g>
-
-                {/* Distance lines */}
-                <line
-                  x1="220"
-                  y1="215"
-                  x2="80"
-                  y2="130"
-                  stroke="rgba(249,115,22,0.2)"
-                  strokeWidth="1"
-                  strokeDasharray="3,3"
-                />
-                <line
-                  x1="220"
-                  y1="215"
-                  x2="315"
-                  y2="255"
-                  stroke="rgba(249,115,22,0.2)"
-                  strokeWidth="1"
-                  strokeDasharray="3,3"
-                />
-
-                {/* Legend */}
-                <rect
-                  x="0"
-                  y="360"
-                  width="400"
-                  height="40"
-                  fill="rgba(15,31,61,0.8)"
-                />
-                <line
-                  x1="20"
-                  y1="380"
-                  x2="50"
-                  y2="380"
-                  stroke="#F97316"
-                  strokeWidth="3"
-                />
-                <text
-                  x="55"
-                  y="384"
-                  fill="rgba(249,115,22,0.8)"
-                  fontSize="8"
-                  fontFamily="Barlow Condensed"
-                >
-                  NATIONAL HIGHWAY
-                </text>
-                <line
-                  x1="160"
-                  y1="380"
-                  x2="190"
-                  y2="380"
-                  stroke="#FBBF24"
-                  strokeWidth="2"
-                  strokeDasharray="4,2"
-                />
-                <text
-                  x="195"
-                  y="384"
-                  fill="rgba(251,191,36,0.8)"
-                  fontSize="8"
-                  fontFamily="Barlow Condensed"
-                >
-                  EXPRESSWAY
-                </text>
-                <circle cx="290" cy="380" r="5" fill="#F97316" />
-                <text
-                  x="300"
-                  y="384"
-                  fill="rgba(249,115,22,0.8)"
-                  fontSize="8"
-                  fontFamily="Barlow Condensed"
-                >
-                  NAVKAR
-                </text>
-              </svg>
+                    View Phase-II Availability <ArrowRight size={15} />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -451,6 +249,63 @@ export default function LocationAdvantage() {
           </a>
         </div>
       </div>
+      {leadPhase && (
+        <div
+          className="lead-overlay"
+          onClick={() => !sending && setLeadPhase(null)}
+        >
+          <div className="lead-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="lead-close"
+              aria-label="Close"
+              onClick={() => setLeadPhase(null)}
+            >
+              <X size={18} />
+            </button>
+            <h3 className="lead-title">
+              View Phase-{leadPhase} Plot Availability
+            </h3>
+            <p className="lead-sub">
+              Enter your details to view live plot availability. Our team will
+              also assist you personally.
+            </p>
+            <form onSubmit={submitLead} className="lead-form">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={form.name}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, name: e.target.value }))
+                }
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                value={form.phone}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, phone: e.target.value }))
+                }
+              />
+              {err && <span className="lead-err">{err}</span>}
+              <button type="submit" className="lead-submit" disabled={sending}>
+                {sending ? (
+                  <>
+                    <Loader2 size={16} className="spin" /> Please wait…
+                  </>
+                ) : (
+                  <>
+                    Continue to Availability <ArrowRight size={15} />
+                  </>
+                )}
+              </button>
+              <span className="lead-note">
+                <CheckCircle2 size={12} /> Your details are shared only with our
+                sales team.
+              </span>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

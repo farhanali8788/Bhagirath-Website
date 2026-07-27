@@ -299,3 +299,73 @@
     display: none;
   }
 }
+
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE  (added)
+═══════════════════════════════════════════ */
+
+/* Safety: never allow horizontal overflow from the hero */
+.altair-hero,
+.altair-hero__content,
+.altair-hero .container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.altair-hero__heading {
+  overflow-wrap: break-word;
+}
+
+/* Tablets / large phones */
+@media (max-width: 680px) {
+  .altair-hero__content {
+    padding: 4.5rem 0 6rem;
+  }
+  .altair-hero__heading {
+    font-size: clamp(3rem, 13vw, 5rem);
+  }
+  .altair-hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    max-width: 320px;
+  }
+  .altair-hero__btn-primary {
+    justify-content: center;
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+  }
+  .altair-hero__btn-ghost {
+    justify-content: center;
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid rgba(184, 131, 74, 0.35);
+  }
+  .altair-hero__btn-hint {
+    text-align: center;
+  }
+  .altair-hero__scroll {
+    display: none;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .altair-hero__content {
+    padding: 4rem 0 5rem;
+  }
+  .altair-hero__eyebrow {
+    font-size: 0.6rem;
+    line-height: 1.6;
+  }
+  .altair-hero__heading {
+    font-size: clamp(2.8rem, 12vw, 3.6rem);
+    line-height: 1;
+  }
+  .altair-hero__sub {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .altair-hero__ctas {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,25 @@
+/* ══════════════════════════════════════════════════════════
+   Global overrides
+   ══════════════════════════════════════════════════════════ */
+
+/* Prevent any element from causing horizontal page overflow on mobile.
+   (Stops the empty strip / sideways scroll on small screens.) */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Mobile header: left-align the logo (was centering in its column) ── */
+@media (max-width: 900px) {
+  .altair-header__inner .brand-badge {
+    justify-content: flex-start;
+  }
+}
+
+/* ── Hero: breathing room above the eyebrow on mobile ── */
+@media (max-width: 680px) {
+  .altair-hero__eyebrow {
+    margin-top: 2.5rem;
+  }
+}

@@ -272,4 +272,8 @@
   .altair-mobile-menu--open {
     clip-path: circle(170% at calc(100% - 20px) 36px);
   }
+  .altair-mobile-nav__link {
+    font-size: 1.3rem;
+    padding: 0.9rem 0;
+  }
 }

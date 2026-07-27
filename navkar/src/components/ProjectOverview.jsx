@@ -25,9 +25,9 @@ const audiences = [
 ];
 
 const highlights = [
-  { num: "50,000+", unit: "Sq.Ft.", label: "Total Development" },
-  { num: "500", unit: "Sq.Yd.", label: "Starting Plot Size" },
-  { num: "24/7", unit: "", label: "Operational Access" },
+  { num: "50,000+", unit: "Sq.Ft.", label: "Total Developed" },
+  { num: "15,000", unit: "Sq.Ft.", label: "Starting Plot Size" },
+  { num: "75,000+", unit: "Sq.Ft.", label: "Land Under Development" },
   { num: "100%", unit: "", label: "Compliance Cleared" },
 ];
 

@@ -5,7 +5,7 @@ import useScrollAnimation from "../hooks/useScrollAnimation";
 // ── Formspree ─────────────────────────────────────────────────────
 // Replace YOUR_FORM_ID with your actual Formspree form ID
 // e.g. https://formspree.io/f/abcd1234  →  FORM_ID = "abcd1234"
-const FORMSPREE_ID = "YOUR_FORM_ID";
+const FORMSPREE_ID = "xykqpjlo";
 const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 // ── WhatsApp ──────────────────────────────────────────────────────
@@ -72,6 +72,8 @@ const Contact = () => {
           email: formData.email,
           project: formData.project || "Not specified",
           message: formData.message,
+          _subject: `Bhagirath Realty Enquiry — ${formData.name || "New Lead"}`,
+          _replyto: formData.email,
         }),
       });
 

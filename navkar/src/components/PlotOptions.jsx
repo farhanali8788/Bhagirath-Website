@@ -3,8 +3,8 @@ import "./PlotOptions.css";
 
 const plots = [
   {
-    size: "500",
-    unit: "Sq. Yd.",
+    size: "15,000",
+    unit: "Sq. Ft.",
     label: "Starter Unit",
     tag: "Best for Start-ups",
     color: "steel",
@@ -17,8 +17,8 @@ const plots = [
     use: "Small warehousing, storage units, retail distribution",
   },
   {
-    size: "1,000",
-    unit: "Sq. Yd.",
+    size: "25,000",
+    unit: "Sq. Ft.",
     label: "Business Unit",
     tag: "Most Popular",
     color: "orange",
@@ -32,8 +32,8 @@ const plots = [
     highlight: true,
   },
   {
-    size: "2,000+",
-    unit: "Sq. Yd.",
+    size: "50,000+",
+    unit: "Sq. Ft.",
     label: "Enterprise Unit",
     tag: "Custom Build",
     color: "steel",
@@ -146,7 +146,7 @@ export default function PlotOptions() {
                         fontWeight="700"
                         letterSpacing="2"
                       >
-                        1,000 SQ. YD.
+                        25,000 Sq. Ft.
                       </text>
                     </>
                   ) : i === 0 ? (
@@ -184,7 +184,7 @@ export default function PlotOptions() {
                         fontFamily="Barlow Condensed"
                         letterSpacing="1"
                       >
-                        500 SQ. YD.
+                        15,000 Sq. Ft.
                       </text>
                     </>
                   ) : (
@@ -258,7 +258,7 @@ export default function PlotOptions() {
                         fontWeight="700"
                         letterSpacing="1"
                       >
-                        2,000+ SQ. YD.
+                        50,000+ SQ. Ft.
                       </text>
                     </>
                   )}

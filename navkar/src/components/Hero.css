@@ -27,14 +27,13 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      105deg,
-      rgba(11, 18, 32, 0.92) 0%,
-      rgba(11, 18, 32, 0.80) 45%,
-      rgba(11, 18, 32, 0.45) 70%,
-      rgba(11, 18, 32, 0.25) 100%
-    );
+  background: linear-gradient(
+    105deg,
+    rgba(11, 18, 32, 0.72) 0%,
+    rgba(11, 18, 32, 0.6) 45%,
+    rgba(11, 18, 32, 0.35) 70%,
+    rgba(11, 18, 32, 0.15) 100%
+  );
 }
 
 /* Bottom fade into the page */
@@ -142,7 +141,7 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 56px;
+  margin-top: 204px;
 }
 
 .cta-primary {
@@ -158,7 +157,10 @@
   text-transform: uppercase;
   padding: 16px 32px;
   border-radius: 3px;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
   box-shadow: 0 4px 24px rgba(2, 146, 206, 0.3);
 }
 
@@ -183,7 +185,10 @@
   border-radius: 3px;
   backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0.04);
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    color 0.2s;
 }
 
 .cta-secondary:hover {
@@ -260,14 +265,19 @@
 }
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .hero-overlay {
-    background: rgba(11, 18, 32, 0.82);
+    background: rgba(11, 18, 32, 0.62);
   }
 
   .hero-content {

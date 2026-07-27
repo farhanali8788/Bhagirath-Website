@@ -1,6 +1,6 @@
 import { ArrowRight, MapPin, Phone } from "lucide-react";
 import "./Hero.css";
-import heroPhoto from "/navkar-hero-bg.png";
+import heroPhoto from "/image_1.webp";
 
 export default function Hero() {
   return (
@@ -34,17 +34,19 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="hero-headline">
-            Industrial &amp; Logistics Park
+            CENTRAL INDIA’S FINEST INDUSTRIAL PARK
             <br />
-            <span className="headline-sub">Built for Scale. Built to Last.</span>
+            {/* <span className="headline-sub">
+              Built for Scale. Built to Last.
+            </span> */}
           </h1>
 
           {/* Description */}
-          <p className="hero-description">
+          {/* <p className="hero-description">
             Premium godowns, warehouses &amp; industrial plots at Nagpur's most
             strategic location — direct NH-44 access, MIDC approved, ready for
             immediate possession.
-          </p>
+          </p> */}
 
           {/* CTAs */}
           <div className="hero-ctas">
@@ -59,7 +61,7 @@ export default function Hero() {
           </div>
 
           {/* Minimal trust strip */}
-          <div className="hero-trust">
+          {/* <div className="hero-trust">
             <div className="trust-item">
               <span className="trust-value">50+</span>
               <span className="trust-label">Industrial Plots</span>
@@ -74,7 +76,7 @@ export default function Hero() {
               <span className="trust-value">500+</span>
               <span className="trust-label">Sq.Yd. Plots</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

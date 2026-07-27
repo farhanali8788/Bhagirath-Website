@@ -232,12 +232,12 @@
     display: none;
   }
   .brand-badge {
-    height: 45px;
-    width: 53px;
+    height: 55px;
+    width: auto;
   }
   .brand-badge img {
-    height: 38px;
-    width: 60px;
+    height: 54px;
+    width: auto;
   }
   .brand-name {
     font-size: 20px;

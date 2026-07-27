@@ -154,14 +154,24 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <Link to="/projects" className="footer-a__link">
-                Altair
-              </Link>
+              <a
+                href="https://altair.bhagirathrealty.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-a__link"
+              >
+                Altair ↗
+              </a>
             </li>
             <li>
-              <Link to="/projects" className="footer-a__link">
-                Navkar
-              </Link>
+              <a
+                href="https://navkar.bhagirathrealty.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-a__link"
+              >
+                Navkar ↗
+              </a>
             </li>
           </ul>
         </div>
