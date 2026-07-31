@@ -36,8 +36,10 @@ const BrandFilm = () => {
             <span className="brandfilm__heading--gold">Brand Film</span>
           </h2>
           <p className="brandfilm__sub">
-            Nearly eight decades of building Nagpur — our people, our craft and
-            the homes we've had the privilege to create.
+            Every piece of land has a purpose, and every Bhagirath Realty
+            project is built to fulfil it. Through thoughtful planning and
+            enduring design, we create destinations that deliver value today
+            while leaving a meaningful legacy for tomorrow.
           </p>
         </div>
 

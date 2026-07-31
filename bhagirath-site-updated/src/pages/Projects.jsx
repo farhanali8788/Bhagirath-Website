@@ -1,29 +1,32 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Projects.css";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 import projects from "../data/projects";
 
 const types = [
   "All",
-  "Farm Estate / Plotted Land",
-  "Residential Apartments",
+  "Residential",
+  "Managed FarmLands",
+  "Industrial",
   "Commercial",
+  "Plotted development",
 ];
 
 // ══════════════════════════════════════════
 //  PROJECT CARD
 // ══════════════════════════════════════════
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project, index, autoExpand }) => {
   const [ref, visible] = useScrollAnimation(0.08);
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(autoExpand);
 
   return (
     <article
+      id={project.id}
       ref={ref}
       className={`pj-card anim-fade-up anim-delay-${(index % 3) + 1} ${visible ? "is-visible" : ""}`}
     >
-      <div className="pj-card__img" id="projects">
+      <div className="pj-card__img">
         <img src={project.image} alt={project.name} />
         <div className="pj-card__img-overlay" />
         <span
@@ -54,76 +57,12 @@ const ProjectCard = ({ project, index }) => {
         >
           <p className="pj-card__desc">{project.description}</p>
           <div className="pj-highlights">
-            {project.id === "panchtatva" && (
-              <>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Plot Size</span>
-                  <span className="pj-highlight__val">½ Acre Parcels</span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Type</span>
-                  <span className="pj-highlight__val">Gated Farm Estate</span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Location</span>
-                  <span className="pj-highlight__val">Kalmeshwar, Nagpur</span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Status</span>
-                  <span className="pj-highlight__val">
-                    Active — Units Available
-                  </span>
-                </div>
-              </>
-            )}
-            {project.id === "project-2" && (
-              <>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Unit Types</span>
-                  <span className="pj-highlight__val">2 & 3 BHK</span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Location</span>
-                  <span className="pj-highlight__val">Wardha Road, Nagpur</span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Amenities</span>
-                  <span className="pj-highlight__val">
-                    Clubhouse, Pool, Garden
-                  </span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Status</span>
-                  <span className="pj-highlight__val">
-                    Upcoming — Pre-launch
-                  </span>
-                </div>
-              </>
-            )}
-            {project.id === "project-4" && (
-              <>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Space Types</span>
-                  <span className="pj-highlight__val">Retail & Office</span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Location</span>
-                  <span className="pj-highlight__val">Hingna Road, Nagpur</span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Footfall</span>
-                  <span className="pj-highlight__val">
-                    High-Growth Corridor
-                  </span>
-                </div>
-                <div className="pj-highlight">
-                  <span className="pj-highlight__label">Status</span>
-                  <span className="pj-highlight__val">
-                    Upcoming — Pre-launch
-                  </span>
-                </div>
-              </>
-            )}
+            {project.highlights?.map((h) => (
+              <div className="pj-highlight" key={h.label}>
+                <span className="pj-highlight__label">{h.label}</span>
+                <span className="pj-highlight__val">{h.value}</span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -163,6 +102,19 @@ const ProjectCard = ({ project, index }) => {
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [hdRef, hdVisible] = useScrollAnimation(0.1);
+  const location = useLocation();
+  const hashTarget = location.hash ? location.hash.slice(1) : null;
+
+  useEffect(() => {
+    if (!hashTarget) return;
+    // slight delay so images/layout have settled before measuring scroll position
+    const t = setTimeout(() => {
+      document
+        .getElementById(hashTarget)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 150);
+    return () => clearTimeout(t);
+  }, [hashTarget]);
 
   const filtered =
     activeFilter === "All"
@@ -195,7 +147,7 @@ const Projects = () => {
         </div>
       </section>
 
-      <section className="pj-grid-section" id="grid">
+      <section className="pj-grid-section" id="projects">
         <div className="container">
           <div
             ref={hdRef}
@@ -228,7 +180,12 @@ const Projects = () => {
 
           <div className="pj-grid">
             {filtered.map((p, i) => (
-              <ProjectCard key={p.id} project={p} index={i} />
+              <ProjectCard
+                key={p.id}
+                project={p}
+                index={i}
+                autoExpand={p.id === hashTarget}
+              />
             ))}
           </div>
         </div>

@@ -16,7 +16,8 @@ const WHATSAPP_MESSAGE =
 const projects = [
   "Panchtatva — Farm Estate",
   "Altair — Apartments",
-  "Navkar — Commercial",
+  "Navkar — Industrial & Logistics",
+  "Bhagirath Complex — Commercial",
   "General Enquiry",
 ];
 

@@ -325,7 +325,7 @@ const About = () => {
                 {
                   name: "Navkar",
                   type: "Industrial",
-                  location: "Nagpur",
+                  location: "NH-44 Corridor, Nagpur",
                   status: "Active",
                   href: "https://navkar.bhagirathrealty.com",
                   external: true,

@@ -6,11 +6,11 @@ import projects from "../../data/projects";
 
 const types = [
   "All",
-  "Residential ",
-  "Managed FarmLands ",
-  "Industrial ",
-  "Commercial ",
-  "Plotted development ",
+  "Residential",
+  "Managed FarmLands",
+  "Industrial",
+  "Commercial",
+  "Plotted development",
 ];
 
 const ProjectCard = ({ project, index }) => {
@@ -56,7 +56,7 @@ const ProjectCard = ({ project, index }) => {
             </a>
           ) : (
             <Link
-              to={`/projects/${project.id}`}
+              to={`/projects#${project.id}`}
               className="proj-card__btn proj-card__btn--outline"
             >
               Learn More

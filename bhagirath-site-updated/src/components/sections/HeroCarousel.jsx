@@ -58,10 +58,10 @@ const slideContent = {
   },
   navkar: {
     projects: {
-      eyebrow: "Commercial — Hingna Road",
-      heading: "Spaces that Support",
-      headingGold: "Growth.",
-      sub: "Our commercial developments are planned to provide businesses with well-located, efficient spaces in Nagpur's high-growth corridors.",
+      eyebrow: "Industrial & Logistics — NH-44 Corridor",
+      heading: "Built for Scale.",
+      headingGold: "Engineered to Last.",
+      sub: "Godowns, warehouses and industrial plots on Nagpur's NH-44 corridor — built for manufacturers, traders and logistics operators to grow with confidence.",
       cta: {
         label: "Visit Navkar ↗",
         href: "https://navkar.bhagirathrealty.com",
