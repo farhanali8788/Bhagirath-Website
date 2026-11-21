@@ -7,8 +7,11 @@
 .plots-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(249,115,22,0.04) 0%, transparent 60%);
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    rgba(249, 115, 22, 0.04) 0%,
+    transparent 60%
+  );
 }
 
 .plots-title {
@@ -17,7 +20,9 @@
   color: var(--white);
   line-height: 1;
 }
-.plots-title .orange { color: var(--orange); }
+.plots-title .orange {
+  color: var(--orange);
+}
 
 .plots-sub {
   max-width: 560px;
@@ -36,7 +41,7 @@
 }
 
 .plot-card {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 28px 24px;
@@ -44,18 +49,20 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: border-color 0.3s, transform 0.3s;
+  transition:
+    border-color 0.3s,
+    transform 0.3s;
 }
 
 .plot-card:hover {
-  border-color: rgba(249,115,22,0.3);
+  border-color: rgba(249, 115, 22, 0.3);
   transform: translateY(-4px);
 }
 
 .plot-card.highlight {
   border-color: var(--orange);
-  background: rgba(249,115,22,0.06);
-  box-shadow: 0 0 40px rgba(249,115,22,0.1);
+  background: rgba(249, 115, 22, 0.06);
+  box-shadow: 0 0 40px rgba(249, 115, 22, 0.1);
 }
 
 .plot-badge {
@@ -65,7 +72,7 @@
   transform: translateX(-50%);
   background: var(--orange);
   color: var(--white);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -74,7 +81,8 @@
   white-space: nowrap;
 }
 
-.plot-top {}
+.plot-top {
+}
 
 .plot-size {
   font-family: var(--font-display);
@@ -100,12 +108,12 @@
 }
 
 .plot-tag {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--orange);
-  background: rgba(249,115,22,0.1);
+  background: rgba(249, 115, 22, 0.1);
   border: 1px solid var(--border-orange);
   padding: 4px 10px;
   border-radius: 2px;
@@ -116,7 +124,10 @@
   border-radius: 3px;
   overflow: hidden;
 }
-.plot-visual svg { display: block; width: 100%; }
+.plot-visual svg {
+  display: block;
+  width: 100%;
+}
 
 .plot-features {
   list-style: none;
@@ -134,12 +145,16 @@
   line-height: 1.4;
 }
 
-.check-icon { color: var(--orange); flex-shrink: 0; margin-top: 2px; }
+.check-icon {
+  color: var(--orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
 
 .plot-use {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--grey);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border-left: 2px solid var(--orange);
   padding: 10px 12px;
   border-radius: 0 2px 2px 0;
@@ -158,18 +173,20 @@
   gap: 6px;
   border: 1px solid var(--border-orange);
   color: var(--orange);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 12px;
   border-radius: 2px;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   margin-top: auto;
 }
 
 .plot-cta:hover {
-  background: rgba(249,115,22,0.1);
+  background: rgba(249, 115, 22, 0.1);
 }
 
 .plot-cta-primary {
@@ -188,16 +205,22 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 3px;
   padding: 24px 28px;
   flex-wrap: wrap;
 }
 
-.custom-icon { font-size: 28px; flex-shrink: 0; }
+.custom-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
 
-.custom-note > div { flex: 1; min-width: 200px; }
+.custom-note > div {
+  flex: 1;
+  min-width: 200px;
+}
 
 .custom-title {
   font-family: var(--font-heading);
@@ -221,7 +244,7 @@
   background: var(--navy);
   border: 1px solid var(--border-orange);
   color: var(--orange);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -231,12 +254,20 @@
   flex-shrink: 0;
 }
 
-.custom-cta:hover { background: rgba(249,115,22,0.1); }
+.custom-cta:hover {
+  background: rgba(249, 115, 22, 0.1);
+}
 
 @media (max-width: 1024px) {
-  .plots-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto 32px; }
+  .plots-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
 }
 
 @media (max-width: 640px) {
-  .custom-note { flex-direction: column; }
+  .custom-note {
+    flex-direction: column;
+  }
 }
