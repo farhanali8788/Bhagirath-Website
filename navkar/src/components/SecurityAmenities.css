@@ -22,7 +22,9 @@
   color: var(--white);
   line-height: 1;
 }
-.sec-title .orange { color: var(--orange); }
+.sec-title .orange {
+  color: var(--orange);
+}
 
 .sec-desc {
   font-size: 14px;
@@ -40,18 +42,23 @@
 
 .sec-card {
   padding: 16px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 3px;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
 }
 
 .sec-card:hover {
   border-color: var(--border-orange);
-  background: rgba(249,115,22,0.04);
+  background: rgba(249, 115, 22, 0.04);
 }
 
-.sec-icon { font-size: 22px; margin-bottom: 8px; }
+.sec-icon {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
 
 .sec-label {
   font-family: var(--font-heading);
@@ -63,7 +70,7 @@
 }
 
 .sec-desc-small {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--grey);
   line-height: 1.5;
 }
@@ -79,5 +86,7 @@
 }
 
 @media (max-width: 480px) {
-  .sec-grid { grid-template-columns: 1fr; }
+  .sec-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -78,9 +78,9 @@ const advantages = [
 
 // ── Phase-I plot availability page (lead-gated) ──
 const PHASE1_URL =
-  "https://sribhagirathrealty.blindersoe.com/projects/plot-availability/2";
+  "https://mapbhoomi.com/l/sri-bhagirath-realty/navkar-industrial-warehousing-park-navkar-i";
 const PHASE2_URL =
-  "https://sribhagirathrealty.blindersoe.com/projects/plot-availability/1";
+  "https://mapbhoomi.com/l/sri-bhagirath-realty/rsb-industrial-warehousing-park-india-llp-navkar-ii";
 // Same Formspree form used across the sites
 const FORMSPREE_URL = "https://formspree.io/f/xykqpjlo";
 // TODO: paste the Google Maps EMBED url (Share → Embed a map → copy the src)

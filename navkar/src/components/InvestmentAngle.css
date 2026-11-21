@@ -7,9 +7,11 @@
 
 .inv-bg {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 400px;
-  background: linear-gradient(to top, rgba(249,115,22,0.04), transparent);
+  background: linear-gradient(to top, rgba(249, 115, 22, 0.04), transparent);
   pointer-events: none;
 }
 
@@ -23,7 +25,9 @@
   color: var(--white);
   line-height: 0.95;
 }
-.inv-title .orange { color: var(--orange); }
+.inv-title .orange {
+  color: var(--orange);
+}
 
 .inv-content {
   display: grid;
@@ -48,14 +52,18 @@
   transition: background 0.2s;
 }
 
-.inv-reason:first-child { border-top: 1px solid var(--border); }
+.inv-reason:first-child {
+  border-top: 1px solid var(--border);
+}
 
-.inv-reason:hover { padding-left: 8px; }
+.inv-reason:hover {
+  padding-left: 8px;
+}
 
 .inv-reason-num {
   font-family: var(--font-display);
   font-size: 36px;
-  color: rgba(249,115,22,0.25);
+  color: rgba(249, 115, 22, 0.25);
   flex-shrink: 0;
   line-height: 1;
   width: 48px;
@@ -71,14 +79,14 @@
 }
 
 .inv-reason-body {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--grey-light);
   line-height: 1.7;
 }
 
 /* Yield Card */
 .yield-card {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 24px;
@@ -89,7 +97,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -97,9 +105,15 @@
   margin-bottom: 24px;
 }
 
-.icon-orange { color: var(--orange); }
+.icon-orange {
+  color: var(--orange);
+}
 
-.yield-bars { display: flex; flex-direction: column; gap: 16px; }
+.yield-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
 .yield-bar-row {
   display: grid;
@@ -116,7 +130,7 @@
 
 .yield-bar-track {
   height: 10px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -135,7 +149,7 @@
 }
 
 .yield-note {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--grey);
   margin-top: 16px;
   letter-spacing: 0.03em;
@@ -143,10 +157,12 @@
 }
 
 /* Mega projects */
-.mega-section { margin-bottom: 20px; }
+.mega-section {
+  margin-bottom: 20px;
+}
 
 .mega-title {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -165,25 +181,30 @@
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 3px;
   transition: border-color 0.2s;
 }
 
-.mega-card:hover { border-color: var(--border-orange); }
+.mega-card:hover {
+  border-color: var(--border-orange);
+}
 
-.mega-icon { font-size: 18px; flex-shrink: 0; }
+.mega-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
 
 .mega-label {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--white);
   margin-bottom: 2px;
 }
 
 .mega-sub {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--grey);
 }
 
@@ -200,7 +221,9 @@
   text-transform: uppercase;
   padding: 15px 24px;
   border-radius: 2px;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .inv-cta:hover {
@@ -220,13 +243,15 @@
 }
 
 .inv-strip-item {
-  background: rgba(249,115,22,0.06);
+  background: rgba(249, 115, 22, 0.06);
   padding: 24px 20px;
   text-align: center;
   transition: background 0.2s;
 }
 
-.inv-strip-item:hover { background: rgba(249,115,22,0.12); }
+.inv-strip-item:hover {
+  background: rgba(249, 115, 22, 0.12);
+}
 
 .inv-strip-val {
   font-family: var(--font-heading);
@@ -238,7 +263,7 @@
 }
 
 .inv-strip-label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--grey-light);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -246,12 +271,22 @@
 }
 
 @media (max-width: 1024px) {
-  .inv-content { grid-template-columns: 1fr; }
-  .inv-strip { grid-template-columns: repeat(2, 1fr); }
+  .inv-content {
+    grid-template-columns: 1fr;
+  }
+  .inv-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
-  .inv-strip { grid-template-columns: 1fr; }
-  .yield-bar-row { grid-template-columns: 100px 1fr 50px; }
-  .mega-grid { grid-template-columns: 1fr; }
+  .inv-strip {
+    grid-template-columns: 1fr;
+  }
+  .yield-bar-row {
+    grid-template-columns: 100px 1fr 50px;
+  }
+  .mega-grid {
+    grid-template-columns: 1fr;
+  }
 }

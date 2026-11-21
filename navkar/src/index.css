@@ -17,8 +17,8 @@
   --steel-light: #253347;
 
   /* Neutrals */
-  --grey: #64748b;
-  --grey-light: #94a3b8;
+  --grey: #9fb0c6; /* was #64748b */
+  --grey-light: #b8c6d9; /* was #94a3b8 */
   --white: #ffffff;
   --off-white: #f1f5f9;
 
